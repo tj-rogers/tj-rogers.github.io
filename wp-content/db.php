@@ -1,0 +1,1 @@
+/Users/trogers/Documents/02 websites/TJ Rogers Design WordPress/wp-content/plugins/query-monitor/wp-content/db.php
