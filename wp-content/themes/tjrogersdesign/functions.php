@@ -20,20 +20,22 @@ Add theme support for WooCommerce (optional)
 * Enqueue scripts and styles.
 >>> REPLACE "theme" with namespace for this theme <<<
 */
-function theme_styles_scripts() {
+function tjr_theme_styles_scripts() {
 
 	// Theme stylesheet.
-	wp_enqueue_style( 'tjrogersdesign-main', get_theme_file_uri( '/style.css' ) );
+	wp_enqueue_style( 'tjr-main', get_theme_file_uri( '/style.css' ) );
 
 	if( is_front_page() ){
-		wp_enqueue_style( 'tjrogersdesign-homepage', get_theme_file_uri( '/css/home.css' ) );
+		wp_enqueue_style( 'tjr-homepage', get_theme_file_uri( '/css/home.css' ) );
 	}
 
-	//wp_enqueue_style( 'theme-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' );
-	//wp_enqueue_style( 'theme-animatecss', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' );
-	wp_enqueue_script( 'tjrogersdesign-global', get_theme_file_uri( '/js/tjrogersdesign.js' ), array('jquery') );
+	wp_enqueue_style( 'tjr-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' );
+	wp_enqueue_style( 'tjr-animatecss', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' );
+	wp_enqueue_script( 'tjr-global', get_theme_file_uri( '/js/tjrogersdesign.js' ), array('jquery'), '', true );
+
 }
-add_action( 'wp_enqueue_scripts', 'theme_styles_scripts' );
+add_action( 'wp_enqueue_scripts', 'tjr_theme_styles_scripts' );
+
 
 
 
