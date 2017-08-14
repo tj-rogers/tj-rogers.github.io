@@ -5,15 +5,9 @@ jQuery(document).ready(function($) {
 // ---------------------------------------
 //----- START JQUERY READY -----*/
 
-// ----------------------------------------------- BLOG ARTICLE MATCH HEIGHT --
-$('.blogListing .views-row h2').matchHeight();
-$('.hpCallout').matchHeight();
-$('.blogListing .views-row').matchHeight();
-$('.blogListing .views-row .views-field-field-article-categories').matchHeight();
-
-
 
 //-------------------------------- WAYPOINT JS STICKY TOPNAV -------------
+/*
 $('.myTag').waypoint(function() {
 		$('.headerFixedOuter').toggleClass( 'visible' );
 	},
@@ -50,25 +44,7 @@ $('.toolsDesc.toolsCms p, .toolsDesc.toolsCoding p').waypoint(function(){
 		t = Math.round(Math.random() * 400);
 	setTimeout(function(){ el.addClass("animated fadeInUp").css("opacity","1"); }, t);
 }, { offset: 'bottom-in-view' });
-
-
-// ---------------------------------------------- LAZY LOADING --
-$('#webform-client-form-12 .webform-component input').focus(function(){
-	var formInput = $(this);
-	$('#webform-client-form-12 .webform-component').removeClass("formSelected");
-	formInput.parent().addClass("formSelected");
-});
-
-$('#webform-client-form-12 .webform-component textarea').focus(function(){
-	var formInput = $(this);
-	$('#webform-client-form-12 .webform-component').removeClass("formSelected");
-	formInput.parents('#webform-client-form-12 .webform-component').addClass("formSelected");
-});
-
-$('#webform-client-form-12 .webform-component input, #webform-client-form-12 .webform-component textarea').blur(function(){
-	var formInput = $(this);
-	$('#webform-client-form-12 .webform-component').removeClass("formSelected");
-});
+*/
 
 
 // ---------------------------------------------- PROJECT NODE SLIDER --

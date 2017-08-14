@@ -18,16 +18,19 @@
 	<?php wp_head(); ?>
 </head>
 
-<body class="tjr-main" <?php body_class(); ?>>
+<body class="tjr-main">
 
 <div class="headerFixedOuter">
 	<div class="headerFixed">
-		<a href="/" class="siteLogo"><img alt="T.J. Rogers | Web Developer/Artist/Geek" title="T.J. Rogers | Web Developer/Artist/Geek" src="/sites/all/themes/tjr/global-images/site-logo.png" /></a>
+		<a href="/" class="siteLogo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo.png" /></a>
 		
 		<div class="topNavFixed">
-			<?php print render($page['topnavfixed']); ?>
-
-			<p>I run it</p>
+			<ul class="menu"><li class="first leaf menu-mlid-435"><a href="/about" id="topAbout">about</a></li>
+				<li class="leaf menu-mlid-439"><a href="/work" id="topWork">projects</a></li>
+				<li class="leaf menu-mlid-441"><a href="/blog" id="topBlog">ramblings</a></li>
+				<li class="leaf menu-mlid-443"><a href="/learning" id="topResources">learning</a></li>
+				<li class="last leaf menu-mlid-445"><a href="/contact" id="topContact">contact</a></li>
+</ul>
 		</div><!-- /topNavFixed -->	
 	</div><!-- /headerFixed -->
 </div><!-- /headerFixedOuter -->
@@ -35,7 +38,9 @@
 <div class="headerWrapOuter">
 	<div class="headerWrap">
 		<div class="featureArea">
-			<?php print render($page['feature']); ?>
+			<p class="myName">Terrance J. Rogers</p>
+			<p class="myTag">Developer.Geek.<br />
+				Designer.Musician.</p>
 		</div><!-- /featureArea -->
 	</div><!-- /headerWrap -->
 	<br class="clearfloat" />

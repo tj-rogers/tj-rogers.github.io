@@ -22,7 +22,7 @@
 /** The name of the database for WordPress */
 define('WP_CACHE', true); //Added by WP-Cache Manager
 define( 'WPCACHEHOME', '/Users/tjrogers/Documents/01 websites/TJ Rogers Design WP/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
-define('DB_NAME', 'tjrwpdb');
+define('DB_NAME', 'tjrwp76');
 
 /** MySQL database username */
 define('DB_USER', 'tjrwpuser');

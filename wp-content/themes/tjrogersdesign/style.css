@@ -10,8 +10,6 @@ Version: 1.0
 
 @import url(http://fonts.googleapis.com/css?family=Asap:400,700,400italic,700italic);
 
-
-
 @charset "UTF-8";
 /* CSS Document */
 
@@ -211,8 +209,8 @@ transform:rotate(20deg) scale(1.2);
 
 /* ---------- CONTENT ---------- */
 .contentWrap {
-max-width: 1120px;
-padding: 3em 5% 0;
+max-width: 1420px;
+padding: 3em 1.5em;
 margin: 0 auto 3em;
 }
 

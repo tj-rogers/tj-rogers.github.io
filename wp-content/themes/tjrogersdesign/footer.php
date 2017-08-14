@@ -1,20 +1,18 @@
 <?php wp_footer(); ?>
 
-<?php if($page['contentbottom']){ ?>
 	<div class="contentBottomOuter">
 		<div class="contentBottom">
-			<?php echo render($page['contentbottom']); ?>
+		<p>Content Bottom</p>
 		</div>
 	</div>
-<?php } ?>
 
 <div class="prefooter">  
-	<?php print render($page['prefooter']); ?>
+	<p>Prefooter</p>
 </div>
     
 <div class="footerWrapOuter">
 	<div class="footerWrapInner">
-			<?php print render($page['footer']); ?>
+			<p>FOOTER SECTION</p>
 	</div><!-- /footerWrapInner -->
 </div><!-- /footerWrapOuter -->
 
