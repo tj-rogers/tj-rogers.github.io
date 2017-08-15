@@ -7,7 +7,6 @@
 <div class="pageWrap">    
     <div class="contentWrap">
         <div class="contentArea">
-            <div class="projectListing">
             <?php the_content(); ?>
 
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -16,7 +15,6 @@
                     <p><?php _e( 'Sorry, no content found' ); ?></p>
                 <?php endif; ?>
 
-            </div><!-- /projectListing -->
         </div><!-- /contentArea -->
 
     </div><!-- /contentWrap -->

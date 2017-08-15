@@ -3,8 +3,15 @@
 * Add theme supports
 */
 add_theme_support('menus');
+add_theme_support('post_thumbnails');
 
-
+function register_theme_menus() {
+	register_nav_menus(
+		array('primary-menu' => __( 'Primary Menu' ), 
+		)
+	);
+} 
+add_action( 'init', 'register_theme_menus' );
 
 /**
 Add theme support for WooCommerce (optional)
@@ -24,6 +31,8 @@ function tjr_theme_styles_scripts() {
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'tjr-main', get_theme_file_uri( '/style.css' ) );
+	wp_enqueue_style( 'tjr-sub', get_theme_file_uri( '/css/sub.css' ) );
+	wp_enqueue_style( 'tjr-nav', get_theme_file_uri( '/css/nav.css' ) );
 
 	if( is_front_page() ){
 		wp_enqueue_style( 'tjr-homepage', get_theme_file_uri( '/css/home.css' ) );

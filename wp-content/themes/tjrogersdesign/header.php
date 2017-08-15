@@ -18,19 +18,23 @@
 	<?php wp_head(); ?>
 </head>
 
-<body class="tjr-main">
+<body <?php body_class(); ?>>
 
 <div class="headerFixedOuter">
 	<div class="headerFixed">
-		<a href="/" class="siteLogo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo.png" /></a>
+		<a href="<?php bloginfo('url'); ?>" class="siteLogo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo-blk.png" /></a>
 		
 		<div class="topNavFixed">
-			<ul class="menu"><li class="first leaf menu-mlid-435"><a href="/about" id="topAbout">about</a></li>
-				<li class="leaf menu-mlid-439"><a href="/work" id="topWork">projects</a></li>
-				<li class="leaf menu-mlid-441"><a href="/blog" id="topBlog">ramblings</a></li>
-				<li class="leaf menu-mlid-443"><a href="/learning" id="topResources">learning</a></li>
-				<li class="last leaf menu-mlid-445"><a href="/contact" id="topContact">contact</a></li>
-</ul>
+			<?php 
+				$defaults = array(
+					'container' => false,
+					'theme_location' => primary-menu,
+					'menu_class' => 'menu'
+				);
+
+				wp_nav_menu( $defaults );
+
+			?>
 		</div><!-- /topNavFixed -->	
 	</div><!-- /headerFixed -->
 </div><!-- /headerFixedOuter -->
@@ -38,9 +42,7 @@
 <div class="headerWrapOuter">
 	<div class="headerWrap">
 		<div class="featureArea">
-			<p class="myName">Terrance J. Rogers</p>
-			<p class="myTag">Developer.Geek.<br />
-				Designer.Musician.</p>
+			<p class="myName">I Design &amp; build webistes</p>
 		</div><!-- /featureArea -->
 	</div><!-- /headerWrap -->
 	<br class="clearfloat" />

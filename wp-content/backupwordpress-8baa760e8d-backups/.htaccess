@@ -4,11 +4,7 @@
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-<<<<<<< Updated upstream
-RewriteCond %{QUERY_STRING} !key=bb28c5fb9f2d8fa7504d8e8c0345d416
-=======
-RewriteCond %{QUERY_STRING} !key=b9ef925a517fc4c1da2f3cffd51f4589
->>>>>>> Stashed changes
+RewriteCond %{QUERY_STRING} !key=f741f8c43d201a74c0e9044343ff238b
 RewriteRule (.*) - [F]
 </IfModule>
 

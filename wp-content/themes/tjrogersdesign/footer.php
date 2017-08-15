@@ -12,13 +12,21 @@
     
 <div class="footerWrapOuter">
 	<div class="footerWrapInner">
-			<p>FOOTER SECTION</p>
+			<h2>Who is this guy?</h2>
+			<p>I am a developer/designer who&rsquo;s based out of Orlando, FL. I get to build websites and design user experiences, as well as craft email campaigns and work on small print projects.</p>
+<p>When I&rsquo;m not working on client projects, you can find me on stage performing, playing basketball or doing other outdoorsy things (like walking around Disney World). I also find joy in doing side projects.</p>
+<p>My wonderful wife Kristi and I love traveling, trying new cuisine, venturing through the Walt Disney World parks, and being involved with the community at Summit Church.</p>
+
 	</div><!-- /footerWrapInner -->
+
+	<div class="spotify">
+		<p><iframe allowtransparency="true" frameborder="0" height="400px" src="https://embed.spotify.com/?uri=spotify:album:17o7ljUmsa9MusgN2BjXwV"></iframe></p>
+	</div>
 </div><!-- /footerWrapOuter -->
 
 <div class="SocialWrap">
 	<div class="social">
-		<p class="socialFind">You can Find me Here on the Interwebs:</p>
+		<p class="socialFind">Where to find me:</p>
 		
 		<a href="https://www.behance.net/tjrogers82" class="socialBehance"><i class="fa fa-behance">&nbsp;</i></a>
 		<a href="https://vimeo.com/tjrogers" class="socialVimeo"><i class="fa fa-vimeo-square">&nbsp;</i></a>
