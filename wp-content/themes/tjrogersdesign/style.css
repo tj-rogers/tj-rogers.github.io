@@ -197,6 +197,28 @@ transform:rotate(20deg) scale(1.2);
 }
 
 
+/* --------------------------------------------- FEATURE -- */
+.myName {
+display: inline-block;
+font-size: 3.5rem;
+font-weight: bold;
+text-transform: uppercase;
+font-family:"museo-slab";
+font-family: sans-serif;
+text-shadow: 1px 1px 1px #414141;
+margin: 5em 0 0;
+width: 50%;
+position: relative;
+z-index: 3;
+color: #313131;
+}
+
+.myTag {
+line-height: 1.2em;
+font-weight: 500;
+}
+
+
 /* ---------- CONTENT ---------- */
 .contentWrap {
 max-width: 1420px;

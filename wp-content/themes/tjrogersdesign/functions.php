@@ -33,6 +33,7 @@ function tjr_theme_styles_scripts() {
 	wp_enqueue_style( 'tjr-main', get_theme_file_uri( '/style.css' ) );
 	wp_enqueue_style( 'tjr-sub', get_theme_file_uri( '/css/sub.css' ) );
 	wp_enqueue_style( 'tjr-nav', get_theme_file_uri( '/css/nav.css' ) );
+	wp_enqueue_style( 'tjr-projects', get_theme_file_uri( '/css/projects.css' ) );
 
 	if( is_front_page() ){
 		wp_enqueue_style( 'tjr-homepage', get_theme_file_uri( '/css/home.css' ) );
