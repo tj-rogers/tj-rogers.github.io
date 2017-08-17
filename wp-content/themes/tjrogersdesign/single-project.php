@@ -32,7 +32,7 @@
                                 $class = get_field('project_images_class', $id); //Get the class which is a extra field (See below how to add extra fields)
                 ?>
 
-                    <a rel="lightbox" href="/wp-content/uploads/2017/08/mass-effect-silhouette_0.jpg">
+                    <a rel="lightbox" href="<?php echo $full_image_url; ?>">
                         <img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
                     </a>
 

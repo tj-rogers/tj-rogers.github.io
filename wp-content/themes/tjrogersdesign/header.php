@@ -20,11 +20,44 @@
 
 <body <?php body_class(); ?>>
 
-<div class="headerFixedOuter">
-	<div class="headerFixed">
-		<a href="<?php bloginfo('url'); ?>" class="siteLogo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo-blk.png" /></a>
+<div class="tagline-social-wrap">
+	<div class="tagline-social">
+		<p class="tagline">Web Design. Web Development. Brand Enhancement.</p>
+
+		<div class="social">
+			<a href="https://www.behance.net/tjrogers82" class="socialBehance"><i class="fa fa-behance">&nbsp;</i></a>
+			<a href="https://vimeo.com/tjrogers" class="socialVimeo"><i class="fa fa-vimeo-square">&nbsp;</i></a>
+			<a href="https://twitter.com/#!/tjrogers82" class="socialTwitter"><i class="fa fa-twitter">&nbsp;</i></a>
+			<a href="http://www.linkedin.com/in/tjrogers82" class="socialLinkedin"><i class="fa fa-linkedin">&nbsp;</i></a>
+			<a href="http://www.pinterest.com/tjrogers82/" class="socialPinterest"><i class="fa fa-pinterest">&nbsp;</i></a>
+			<a href="http://instagram.com/tjrogers82" class="socialInstagram"><i class="fa fa-instagram">&nbsp;</i></a>
+			<a href="http://dribbble.com/tjrogers82" class="socialDribble"><i class="fa fa-dribbble">&nbsp;</i></a>
+			<a href="http://codepen.io/tjrogers82/" class="socialCodepen"><i class="fa fa-codepen">&nbsp;</i></a>
+		</div><!-- social -->  
+	</div><!-- /tagline-social -->
+</div><!-- /tagline-social-wrap -->
+
+<div class="hdr-logo-contact-wrap">
+	<div class="hdr-logo-contact">
+		<p class="logo-name"><a href="<?php bloginfo('url'); ?>" class="site-logo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo-blk.png" /></a>TJ Rogers Design</p>
 		
-		<div class="topNavFixed">
+		<div class="hdr-contact-info">
+			<div class="hdr-loc">
+				<p class="hdr-loc-icn"><img src="/wp-content/themes/tjrogersdesign/images/location-pin.svg"></p>
+				<p class="hdr-loc-text"><span>Located in</span>Orlando, FL</p>
+			</div><!-- /hdr-loc -->
+
+			<div class="hdr-phone">
+				<p class="hdr-phone-icn"><img src="/wp-content/themes/tjrogersdesign/images/phone-icn.svg"></p>
+				<p class="hdr-phone-text"><span>You can reach me at</span>321-759-5494</p>
+			</div><!-- /hdr-phone -->	
+		</div><!-- /hdr-contact-info -->
+	</div><!-- /tagline-social -->
+</div><!-- /tagline-social-wrap -->
+
+<div class="top-nav-wrap">
+	<div class="tagline-social">		
+		<div class="top-nav">
 			<?php 
 				$defaults = array(
 					'container' => false,
@@ -35,14 +68,14 @@
 				wp_nav_menu( $defaults );
 
 			?>
-		</div><!-- /topNavFixed -->	
-	</div><!-- /headerFixed -->
-</div><!-- /headerFixedOuter -->
+		</div><!-- /top-nav -->	
+	</div><!-- /tagline-social -->
+</div><!-- /tagline-social-wrap -->
 
 <div class="headerWrapOuter">
 	<div class="headerWrap">
 		<div class="featureArea">
-			<p class="myName">I Design &amp; build webistes</p>
+			<p class="myName"><span>I Design &amp;</span> build webistes</p>
 		</div><!-- /featureArea -->
 	</div><!-- /headerWrap -->
 	<br class="clearfloat" />

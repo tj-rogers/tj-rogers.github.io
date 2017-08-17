@@ -40,6 +40,7 @@ function tjr_theme_styles_scripts() {
 	}
 
 	wp_enqueue_style( 'tjr-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' );
+	wp_enqueue_style( 'tjr-gfonts', 'https://fonts.googleapis.com/css?family=Lora:400,700|Oswald:200,400,700' );
 	wp_enqueue_style( 'tjr-animatecss', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' );
 	wp_enqueue_script( 'tjr-global', get_theme_file_uri( '/js/tjrogersdesign.js' ), array('jquery'), '', true );
 
