@@ -42,6 +42,10 @@ font-family: inherit;
 font-size: 18px;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html, body {
 overflow-x: hidden;
 -webkit-text-size-adjust: none;
@@ -136,7 +140,8 @@ margin: 0 auto;
 
 /* --------------------------------------------- TAGLINE?SOCIAL -- */
 .tagline-social-wrap {
-background: #f1f1f1;	
+background: #f1f1f1;
+padding: 0 1.5em;
 }
 
 .tagline-social {
@@ -145,7 +150,7 @@ font-weight: 100;
 position: relative;
 max-width: 1320px;
 margin: 0 auto;
-padding: 1em;
+padding: 0.75em 0;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
@@ -154,7 +159,9 @@ align-items: center;
 }
 
 .tagline {
-letter-spacing: 1px;	
+font-size: 0.8em;
+letter-spacing: 1px;
+color: #aaa;
 }
 
 
@@ -165,49 +172,24 @@ margin: 0 0.25em;
 color: #aaa;
 }
 
-.socialBehance:hover {
-color: #1769FF;
+.socialBehance:hover { color: #1769FF; }
+.socialVimeo:hover { color: #1ab7ea; }
+.socialTwitter:hover { color: #55acee; }
+.socialFacebook:hover { color: #3b5998; }
+.socialLinkedin:hover { color: #0077b5; }
+.socialPinterest:hover { color: #cc2127; }
+.socialGoogle:hover { color: #db4437; }
+.socialInstagram:hover { color: #3f729b; }
+.socialDribble:hover { color: #ea4c89; }
+.socialCodepen:hover { color: #212121; }
+
+
+/* --------------------------------------------- HEADER -- */
+.hdr-logo-contact-wrap {
+font-family: 'Oswald', sans-serif;	
+padding: 0 1.5em;
 }
 
-.socialVimeo:hover {
-color: #1ab7ea;
-}
-
-.socialTwitter:hover {
-color: #55acee;
-}
-
-.socialFacebook:hover {
-color: #3b5998;
-}
-
-.socialLinkedin:hover {
-color: #0077b5;
-}
-
-.socialPinterest:hover {
-color: #cc2127;
-}
-
-.socialGoogle:hover {
-color: #db4437;
-}
-
-.socialInstagram:hover {
-color: #3f729b;
-}
-
-.socialDribble:hover {
-color: #ea4c89;
-}
-
-.socialCodepen:hover {
-color: #fff;
-color: #212121;
-}
-
-
-/* ----- HEADER ----- */
 .hdr-logo-contact,
 .hdr-contact-info,
 .hdr-loc,
@@ -220,13 +202,21 @@ align-items: center;
 }
 
 .hdr-logo-contact-wrap img {
-width: 40px;	
+width: 35px;	
 }
 
 .hdr-logo-contact {
 max-width: 1320px;	
 margin: auto;
 padding: 2em 0;
+}
+
+.logo-name {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;	
 }
 
 .hdr-logo-contact-wrap .site-logo img {
@@ -240,12 +230,37 @@ transform:rotate(20deg) scale(1.2);
 -webkit-transform:rotate(20deg) scale(1.2);
 }
 
+.site-logo-company {
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-items: flex-start; 
+padding-left: 0.5em;
+line-height: 1.25;
+font-weight: 800;
+letter-spacing: 1px;
+}
 
-/* --------------------------------------------- NAV -- */
-.header-wrap {
-position: relative;
-max-width: 1320px;
-margin: 0 auto;
+.site-logo-company-tag {
+font-weight: 100;    
+font-size: 0.9em;
+color: #aaa;
+}
+
+/* ----- CONTACT INFO ----- */
+.hdr-contact-info div {
+margin: 0 0.5em;
+line-height: 1.25;
+font-weight: 800;
+}
+
+.hdr-contact-info img {
+margin-right: 0.5em;
+}
+
+.hdr-contact-info span {
+display: block;  
+font-weight: 100;
 }
 
 
@@ -256,7 +271,6 @@ background-size: cover;
 position: relative;
 height: 500px;
 }
-
 
 .headerWrapOuter:before {
 //content: '';

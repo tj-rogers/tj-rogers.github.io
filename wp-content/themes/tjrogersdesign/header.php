@@ -39,7 +39,7 @@
 
 <div class="hdr-logo-contact-wrap">
 	<div class="hdr-logo-contact">
-		<p class="logo-name"><a href="<?php bloginfo('url'); ?>" class="site-logo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo-blk.png" /></a>TJ Rogers Design</p>
+		<p class="logo-name"><a href="<?php bloginfo('url'); ?>" class="site-logo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo-blk.png" /></a><span class="site-logo-company">TJ Rogers Design<span class="site-logo-company-tag">Web Deigner &amp; Developer</span></span></p>
 		
 		<div class="hdr-contact-info">
 			<div class="hdr-loc">
@@ -55,8 +55,7 @@
 	</div><!-- /tagline-social -->
 </div><!-- /tagline-social-wrap -->
 
-<div class="top-nav-wrap">
-	<div class="tagline-social">		
+<div class="top-nav-wrap">		
 		<div class="top-nav">
 			<?php 
 				$defaults = array(
@@ -69,8 +68,7 @@
 
 			?>
 		</div><!-- /top-nav -->	
-	</div><!-- /tagline-social -->
-</div><!-- /tagline-social-wrap -->
+</div><!-- /top-nav-wrap -->
 
 <div class="headerWrapOuter">
 	<div class="headerWrap">
