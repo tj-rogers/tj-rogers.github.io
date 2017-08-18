@@ -13,7 +13,6 @@
 <div class="footer-wrap">
 	<div class="footer">
 		<div class="footer-about">
-			<h2>Who is this guy?</h2>
 			<p>I am a developer/designer who&rsquo;s based out of Orlando, FL. I get to build websites and design user experiences, as well as craft email campaigns and work on small print projects.</p>
 			<p>When I&rsquo;m not working on client projects, you can find me on stage performing, playing basketball or doing other outdoorsy things (like walking around Disney World). I also find joy in doing side projects.</p>
 			<p>My wonderful wife Kristi and I love traveling, trying new cuisine, venturing through the Walt Disney World parks, and being involved with the community at Summit Church.</p>
@@ -23,11 +22,23 @@
 				$defaults = array(
 					'container' => false,
 					'theme_location' => primary-menu,
-					'menu_class' => '-footer-menu'
+					'menu_class' => 'footer-menu'
 				);
 				wp_nav_menu( $defaults );
 			?>
 		</div><!-- /footer-nav -->
+
+		<div class="footer-contact-info">
+			<div class="footer-loc">
+				<p class="footer-loc-icn"><img src="/wp-content/themes/tjrogersdesign/images/location-pin.svg"></p>
+				<p class="footer-loc-text"><span>Based in </span>Orlando, FL</p>
+			</div><!-- /hdr-loc -->
+
+			<div class="footer-phone">
+				<p class="footer-phone-icn"><img src="/wp-content/themes/tjrogersdesign/images/phone-icn.svg"></p>
+				<p class="footer-phone-text"><span>You can reach me at</span>321-759-5494</p>
+			</div><!-- /footer-phone -->	
+		</div><!-- /footer-contact-info -->
 	</div><!-- /footer -->
 </div><!-- /footer-wrap -->
 

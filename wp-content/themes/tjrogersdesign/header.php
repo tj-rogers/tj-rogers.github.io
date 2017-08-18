@@ -22,11 +22,12 @@
 
 <div class="tagline-social-wrap">
 	<div class="tagline-social">
-		<p class="tagline">Web Design. Web Development. Brand Enhancement.</p>
+		<p class="tagline">Web Design &bull; Web Development &bull; Brand Enhancement.</p>
 
 		<div class="social">
 			<a href="https://www.behance.net/tjrogers82" class="socialBehance"><i class="fa fa-behance">&nbsp;</i></a>
 			<a href="https://vimeo.com/tjrogers" class="socialVimeo"><i class="fa fa-vimeo-square">&nbsp;</i></a>
+			<a href="https://www.youtube.com/c/TerranceRogers" class="social-youtube"><i class="fa fa-youtube-play">&nbsp;</i></a>
 			<a href="https://twitter.com/#!/tjrogers82" class="socialTwitter"><i class="fa fa-twitter">&nbsp;</i></a>
 			<a href="http://www.linkedin.com/in/tjrogers82" class="socialLinkedin"><i class="fa fa-linkedin">&nbsp;</i></a>
 			<a href="http://www.pinterest.com/tjrogers82/" class="socialPinterest"><i class="fa fa-pinterest">&nbsp;</i></a>
@@ -44,7 +45,7 @@
 		<div class="hdr-contact-info">
 			<div class="hdr-loc">
 				<p class="hdr-loc-icn"><img src="/wp-content/themes/tjrogersdesign/images/location-pin.svg"></p>
-				<p class="hdr-loc-text"><span>Located in</span>Orlando, FL</p>
+				<p class="hdr-loc-text"><span>Based in </span>Orlando, FL</p>
 			</div><!-- /hdr-loc -->
 
 			<div class="hdr-phone">
@@ -52,8 +53,8 @@
 				<p class="hdr-phone-text"><span>You can reach me at</span>321-759-5494</p>
 			</div><!-- /hdr-phone -->	
 		</div><!-- /hdr-contact-info -->
-	</div><!-- /tagline-social -->
-</div><!-- /tagline-social-wrap -->
+	</div><!-- /hdr-logo-contact -->
+</div><!-- /hdr-logo-contact-wrap -->
 
 <div class="top-nav-wrap">		
 		<div class="top-nav">
@@ -70,11 +71,10 @@
 		</div><!-- /top-nav -->	
 </div><!-- /top-nav-wrap -->
 
-<div class="headerWrapOuter">
-	<div class="headerWrap">
-		<div class="featureArea">
-			<p class="myName"><span>I Design &amp;</span> build webistes</p>
-		</div><!-- /featureArea -->
-	</div><!-- /headerWrap -->
-	<br class="clearfloat" />
-</div><!-- /headerWrapOuter -->
+<div class="header-wrap-outer">
+	<div class="header-wrap">
+		<div class="feature-area">
+			<p class="feature-statement"><span class="statement-sect statement-sect-1">Uniquely Crafted</span><span class="statement-sect statement-sect-2">Webistes &amp; Design</span></p>
+		</div><!-- /feature-area -->
+	</div><!-- /header-wrap -->
+</div><!-- /header-wrap-outer -->

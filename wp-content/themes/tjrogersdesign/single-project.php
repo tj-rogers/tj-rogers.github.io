@@ -24,7 +24,7 @@
                                 $title = $image['title']; //The title
                                 $caption= $image['caption']; //The caption
                                 $full_image_url= $image['full_image_url']; //Full size image url
-                                //$full_image_url = acf_photo_gallery_resize_image($full_image_url, 262, 160); //Resized size to 262px width by 160px height image url
+                                $thumb_image_url = acf_photo_gallery_resize_image($full_image_url, 800, 600); //Resized size to 262px width by 160px height image url
                                 $thumbnail_image_url= $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
                                 $url= $image['url']; //Goto any link when clicked
                                 $target= $image['target']; //Open normal or new tab
@@ -33,13 +33,10 @@
                 ?>
 
                     <a rel="lightbox" href="<?php echo $full_image_url; ?>">
-                        <img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
+                        <img src="<?php echo $thumb_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
                     </a>
-
                 <?php endforeach; endif; ?>    
-
-            </div>         
-
+            </div><!-- /project-main-image -->         
         </div><!-- /contentArea -->
 
         <!-- Right Sidebar Section -->
@@ -64,15 +61,16 @@
                 </p>
             </div>
 
-            <div class="project-desc">
-                <h2>Project Overview</h2>
-                <?php the_field('project_description'); ?>
-            </div>
-
             <p><a class="seeMore backToPort" href="/work"><i class="fa fa-arrow-circle-o-left"> </i> Back to my Portfolio</a></p>
 
         </div><!-- /sidebar-area -->
 
+        <div class="project-desc-container">
+            <div class="project-desc">
+                <h2>Project Overview</h2>
+                <?php the_field('project_description'); ?>
+            </div><!-- /project-desc-container -->
+        </div><!-- /project-desc -->
         <?php endwhile; endif; ?>        
     </div><!-- /contentWrap -->
 </div><!-- /pageWrap -->
