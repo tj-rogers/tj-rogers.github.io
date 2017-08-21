@@ -113,27 +113,25 @@
 @media (max-width: 1780px) {
   .projectListing .views-row {
     width: 22%; } }
-
 @media (max-width: 1300px) {
   .projectListing .views-row {
     width: 30%;
     margin: 1em 0.5em 0; } }
-
 @media (max-width: 960px) {
   .projectListing .views-row {
     vertical-align: top;
     position: relative;
     width: 47%; }
+
   .projectListing .views-row-last {
     display: none; } }
-
 @media (max-width: 650px) {
   .projectListing .views-row {
     width: 80%;
     margin: 2em 0 0; }
+
   .projectListing .views-row-last {
     display: inline-block; } }
-
 .projectListing .views-field-field-project-category {
   font-size: 0.8em;
   color: #888;
@@ -338,12 +336,10 @@ p.likeWork {
 @media (max-width: 940px) {
   .contentBottom .hpCallout {
     padding: 3em 3%; } }
-
 @media (max-width: 830px) {
   .contentBottom .hpCallout {
     display: block;
     width: 94%; } }
-
 .contentBottom .hpCallout:before {
   position: absolute;
   top: 0;
@@ -477,7 +473,6 @@ p.likeWork {
 @media (max-width: 660px) {
   .clientListing {
     padding: 3em 0 3em; } }
-
 .clientListing h2 {
   color: #373c40;
   margin-bottom: 2em; }
@@ -498,7 +493,6 @@ p.likeWork {
   .clientListing .views-row {
     width: 30%;
     margin-top: 2em; } }
-
 .clientListing .views-row img {
   opacity: 0.4;
   max-width: 100% !important;
@@ -601,5 +595,3 @@ border-bottom: 8px solid #e5eaf0;
   color: #555;
   padding-top: 1em;
   text-align: center; }
-
-/*# sourceMappingURL=home.css.map */

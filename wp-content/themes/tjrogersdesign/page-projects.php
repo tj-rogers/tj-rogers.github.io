@@ -31,20 +31,8 @@ Template Name: Projects Page
 
                 <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
 
-                    <div class="project-row">   
-                        <div class="project-category">
-
-                            <?php  
-                                $terms = get_the_terms( $post->ID , 'project_categories' );
-                                $i = 1;
-                                foreach ( $terms as $term ) {
-                                echo $term->name;
-                                echo ($i < count($terms))? ", " : "";
-                                $i++; 
-                            } ?>
-
-                        </div>  
-                        <div class="project-main-image">        
+                    <div class="project-row">    
+                        <div class="project-row-sect project-main-image">        
                             <?php    
                                 //Get the images ids from the post_metadata
                                 $images = acf_photo_gallery('project_images', $post->ID);
@@ -57,7 +45,7 @@ Template Name: Projects Page
                                             $title = $image['title']; //The title
                                             $caption= $image['caption']; //The caption
                                             $full_image_url= $image['full_image_url']; //Full size image url
-                                            $full_image_url = acf_photo_gallery_resize_image($full_image_url, 262, 160); //Resized size to 262px width by 160px height image url
+                                            $full_image_url = acf_photo_gallery_resize_image($full_image_url, 500, 560); //Resized size to 262px width by 160px height image url
                                             $thumbnail_image_url= $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
                                             $url= $image['url']; //Goto any link when clicked
                                             $target= $image['target']; //Open normal or new tab
@@ -72,9 +60,31 @@ Template Name: Projects Page
                             <?php endforeach; endif; ?>    
 
                         </div>  
-                        <div class="project-title">        
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>  
-                        </div>  
+
+                        <div class="project-row-sect project-info"> 
+                            <div class="project-title">        
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>  
+                            </div>
+
+                            <div class="project-category">
+
+                                <?php  
+                                    $terms = get_the_terms( $post->ID , 'project_categories' );
+                                    $i = 1;
+                                    foreach ( $terms as $term ) {
+                                    echo $term->name;
+                                    echo ($i < count($terms))? ", " : "";
+                                    $i++; 
+                                } ?>
+
+                            </div>
+
+                            <div class="project-description">
+                                <?php the_field('project_description'); ?>
+                            </div><!-- /project-desc -->
+
+                            <a class="btn" href="<?php the_permalink(); ?>">View Project</a>
+                        </div><!-- /project-info -->
                     </div><!-- /view-row -->
 
                 <?php endwhile; endif; wp_reset_postdata(); ?>

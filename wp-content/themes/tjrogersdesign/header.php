@@ -74,7 +74,8 @@
 <div class="header-wrap-outer">
 	<div class="header-wrap">
 		<div class="feature-area">
-			<p class="feature-statement"><span class="statement-sect statement-sect-1">Uniquely Crafted</span><span class="statement-sect statement-sect-2">Webistes &amp; Design</span></p>
+			<p class="feature-statement"><span class="statement-sect statement-sect-1">Uniquely Crafted Websites &amp; Branding</span><span class="statement-sect statement-sect-2">to better engage your audience </span></p>
+			<a class="btn" href="/contact">Start your project today!</a>
 		</div><!-- /feature-area -->
 	</div><!-- /header-wrap -->
 </div><!-- /header-wrap-outer -->

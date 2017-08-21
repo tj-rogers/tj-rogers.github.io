@@ -1,6 +1,108 @@
 /* CSS Document */
 
-/* ------------------------------ Featured Projects ----- */
+/* ------------------------------ LANDING PAGE ----- */
+body.page-template-page-projects {
+	background: #f7f7f7;
+}
+
+.page-template-page-projects .content-area {
+	//max-width: 980px;
+	margin: auto;
+}
+
+.projects-listing {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: stretch;
+align-items: stretch;
+}
+
+.project-row {
+width: 23%;
+position: relative;
+margin: 1em 1% 0;
+overflow: hidden;
+}
+
+.project-info {
+	position: absolute;
+	padding: 1em 1.25em;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	//background: #424242;
+	height: 100%;
+	transform: translateY(100%);
+	transition: 0.2s;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+}
+
+.project-row:hover .project-info {
+	transform: translateY(65%);
+}
+
+.project-main-image {
+	line-height: 0;	
+}
+
+.project-main-image a img {
+	width: 100%;
+	transition: 0.2s;
+}
+
+.project-row:hover .project-main-image a img {
+	transform: translateY(-1.75em) scale(1.25);
+}
+
+.project-main-image a {
+	display: none;
+}
+
+.project-main-image a:nth-child(1) {
+	display: block;
+}
+
+.project-title {
+	font-size: 1.05em;
+	font-weight: 400;
+}
+
+.project-category {
+	font-size: 0.9em;
+	font-family: 'Lora';
+	//color: #fff;
+	//margin-bottom: 1em;
+}
+
+.project-description, 
+.project-info .btn {
+	display: none;
+}
+
+.project-description p {
+	line-height: 1.75;
+}
+
+.project-info .btn {
+	padding: 0.75em 1.5em;
+	font-size: 0.9em;
+	margin-top: 1.5em;
+	//position: absolute;
+	bottom: 0;
+	left: 50%;
+	//transform: translate(-50%,50%);
+	background: $blue;
+}
+
+
+
 
 .seeMore {
 text-align: center;
@@ -86,7 +188,10 @@ width: 100%;
 }
 
 .project-template-default .content-area .project-main-image {
-padding: 0.5em;	
+//padding: 0.5em;
+//background: #f7f7f7;
+line-height: 0;	
+box-shadow: 0 0 15px #ccc;
 }
 
 
@@ -108,20 +213,25 @@ color: #ccc;
 font-weight: 100;
 }
 
-.project-info h2:before {
-content: "\f016";
-}
-
 .project-desc {
-margin-top: 3em;	
+	width: 980px;
+	margin: 3em auto 0;
+
+	p {
+		line-height: 1.75em;
+	}
+
+	h2:before {
+		content: "\f115";
+	}
 }
 
-.project-desc h2:before {
-content: "\f115";
-}
-
-.project-desc p {
-line-height: 1.75em;
+.project-info h2 {
+	letter-spacing: 0;	
+	
+	&:before {
+		content: "\f016";
+	}
 }
 
 .projStat {
@@ -154,7 +264,7 @@ margin-top: 3em;
 .backToPort {
 	width: 70%;
 	display: block;
-	text-align: center;
+	//text-align: center;
 	position: relative;
 	font-family: "Oswald";
 	font-weight: 100;
@@ -163,7 +273,7 @@ margin-top: 3em;
 	line-height: 1;
 	background: $gold;
 	padding: 1em;
-	margin: 3em auto 0;
+	margin-top: 3em;
 	transition: .2s;
 	letter-spacing: 1.5px;
 	-moz-transition: .2s;
@@ -197,53 +307,6 @@ margin-top: 3em;
 	}
 }
 
-
-
-/* --------------------------------------------- OTHER PROJECTS -- */
-.projOther {
-background: #80e7fc;
-background: #5de0e5;
-background: #cf5a35;
-background: #c23f3f;
-padding: 2em 2em 4em;
-}
-
-.projOther h2 {
-color: #3d7fae;
-color: #fff;
-margin: 0 0 0.25em;
-}
-
-.projOther .views-row,
-.projOther .views-row:hover {
-background: none;
-box-shadow: none;
-}
-
-.projOther .views-row {
-margin-top: 0;
-}
-
-.projOther .views-row:hover {
-transform: scale(1.125);
-}
-
-.projOther .views-field-field-project-category {
-font-weight: 500;
-transition: 0.2s;
-color: #ccc;
-}
-
-.projOther .views-field-title a {
-padding: 1.5em 0.5em 0;
-color: #e1cd83;
-}
-
-.projOther .views-row:hover .views-field-title a,
-.projOther .views-field-title a:hover {
-color: #179bb6;
-color: #fff;
-}
 
 
 /* --------------------------------------------- SLICK SLIDER -- */

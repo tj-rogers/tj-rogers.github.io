@@ -74,7 +74,7 @@ background: #19656a;
 	}
 }
 
-.single-project .menu-item-58 a {
+.single-project .top-nav .menu-item-58 a {
 	background: $blue;
 
 	&:hover {
@@ -105,12 +105,10 @@ background: #19656a;
 	}
 }
 
-.footerNav .menu li a:hover,
-.footerNav .menu li a.active {
-border-left: 0.5em solid #11505D;
-border-right: 7em solid #11505D;
-padding: 0.25em 0.6em;
-/* background: #b3ecff; */
+.footer-menu li a:hover,
+.footer-menu .current-menu-item a,
+.single-project .footer-menu .menu-item-58 a {
+	color: $blue;
 }
 
 .footerNav .menu li .home:hover,

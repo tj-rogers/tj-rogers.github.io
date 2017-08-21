@@ -12,12 +12,11 @@
     
 <div class="footer-wrap">
 	<div class="footer">
-		<div class="footer-about">
+		<div class="footer-sect footer-about">
+			<p class="logo-name"><a href="<?php bloginfo('url'); ?>" class="site-logo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo.png" /></a><span class="site-logo-company">TJ Rogers Design<span class="site-logo-company-tag">Web Deigner &amp; Developer</span></span></p>
 			<p>I am a developer/designer who&rsquo;s based out of Orlando, FL. I get to build websites and design user experiences, as well as craft email campaigns and work on small print projects.</p>
-			<p>When I&rsquo;m not working on client projects, you can find me on stage performing, playing basketball or doing other outdoorsy things (like walking around Disney World). I also find joy in doing side projects.</p>
-			<p>My wonderful wife Kristi and I love traveling, trying new cuisine, venturing through the Walt Disney World parks, and being involved with the community at Summit Church.</p>
 		</div>
-		<div class="footer-nav">
+		<div class="footer-sect footer-nav">
 			<?php 
 				$defaults = array(
 					'container' => false,
@@ -28,7 +27,8 @@
 			?>
 		</div><!-- /footer-nav -->
 
-		<div class="footer-contact-info">
+		<div class="footer-sect footer-contact-info">
+
 			<div class="footer-loc">
 				<p class="footer-loc-icn"><img src="/wp-content/themes/tjrogersdesign/images/location-pin.svg"></p>
 				<p class="footer-loc-text"><span>Based in </span>Orlando, FL</p>
@@ -44,7 +44,7 @@
 
 <div class="copyrightWrapOuter">
 	<div class="copyrightWrap">
-		<p class="copyright">&copy; <?php echo date('Y'); ?> Terrance J. Rogers. All rights reserved.</p><!-- copyright -->
+		<p class="copyright">&copy; <?php echo date('Y'); ?> TJ Rogers Design &bull; All rights reserved.</p><!-- copyright -->
 		<p class="crQuote">"Imagination is more important than knowledge" -Albert&nbsp;Einstein</p>
 	</div>
 </div>
