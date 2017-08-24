@@ -52,7 +52,7 @@ add_action( 'wp_enqueue_scripts', 'tjr_theme_styles_scripts' );
 * Register our sidebars and widgetized areas.
 */
 function create_widget($name, $id, $description) {
- 
+
     register_sidebar(array(
         'name' => __( $name ),    
         'id' => $id,
@@ -62,8 +62,21 @@ function create_widget($name, $id, $description) {
         'before_title' => '<h2>',
         'after_title' => '</h2>'
     ));
+
+    register_sidebar(array(
+        'name' => esc_html__( 'Feature Area' ),    
+        'id' => 'feature-area',
+        'description' => esc_html__( 'Feature images & text.' ),
+        'before_widget' => '<div class="widget feature">',
+		'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+    ));
  
 }
 // Create the actual widgets (ID is a unique string)
 create_widget("Name", "id", "Description");
+add_action( 'widgets_init', 'create_widget' );
+
+
 

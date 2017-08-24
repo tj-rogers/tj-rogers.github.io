@@ -17,6 +17,7 @@
 			<p>I am a developer/designer who&rsquo;s based out of Orlando, FL. I get to build websites and design user experiences, as well as craft email campaigns and work on small print projects.</p>
 		</div>
 		<div class="footer-sect footer-nav">
+			<p>Site</p>
 			<?php 
 				$defaults = array(
 					'container' => false,

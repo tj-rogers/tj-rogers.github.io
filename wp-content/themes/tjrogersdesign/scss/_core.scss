@@ -344,23 +344,27 @@ font-family: "Oswald";
 max-width: 1320px;
 padding: 4em 1.5em;
 margin: 0 auto 3em;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
 }
 
 .front .contentWrap {
 padding: 1em 0 0;
 }
 
-.contentArea.hasSidebar,
-.sidebarArea {
-display: inline-block;
-vertical-align: top;
+.content-area.hasSidebar,
+.sidebar-area {
+
 }
 
-.contentArea.hasSidebar {
+.content-area.has-sidebar {
 width: 63%;
 }
 
-.sidebarArea {
+.sidebar-area {
 width: 32%;
 margin-left: 2em;
 }
