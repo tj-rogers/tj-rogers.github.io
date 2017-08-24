@@ -860,7 +860,7 @@ body.page-template-page-projects {
   margin: 1em 1% 0;
   overflow: hidden; }
 
-.project-info {
+.project-row .project-info {
   position: absolute;
   padding: 1em 1.25em;
   bottom: 0;
