@@ -76,7 +76,7 @@ function create_widget($name, $id, $description) {
 }
 // Create the actual widgets (ID is a unique string)
 create_widget("Name", "id", "Description");
-add_action( 'widgets_init', 'create_widget' );
+//add_action( 'widgets_init', 'create_widget' );
 
 
 
