@@ -111,7 +111,6 @@
                         echo '</div>';
                     }
 
-
                     echo '</div>';
                     echo '<div style="margin-left:200px">' . $select_priority . $select_frequency . '</div>';
                     echo '</div>';

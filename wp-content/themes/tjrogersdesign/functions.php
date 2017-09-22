@@ -16,10 +16,10 @@ add_action( 'init', 'register_theme_menus' );
 /**
 Add theme support for WooCommerce (optional)
 */
-// add_action( 'after_setup_theme', 'woocommerce_support' );
-// function woocommerce_support() {
-//     add_theme_support( 'woocommerce' );
-// }
+ add_action( 'after_setup_theme', 'woocommerce_support' );
+ function woocommerce_support() {
+     add_theme_support( 'woocommerce' );
+ }
 
 
 

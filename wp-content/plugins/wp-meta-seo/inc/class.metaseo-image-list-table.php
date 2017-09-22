@@ -36,6 +36,11 @@ class MetaSeo_Image_List_Table extends WP_List_Table {
                     <?php
                         $this->months_fillter('sldate');
                         $this->meta_fillter('slmeta', 'filter_meta_action');
+                    if(is_plugin_active(WPMSEO_ADDON_FILENAME) && (is_plugin_active('sitepress-multilingual-cms/sitepress.php') || is_plugin_active('polylang/polylang.php'))){
+                            $lang = !empty($_REQUEST['wpms_lang_list']) ? $_REQUEST['wpms_lang_list'] : '0';
+                            $sl_lang = apply_filters('wpms_get_languagesList','',$lang);
+                            echo $sl_lang;
+                        }
                     ?>
                 </div>
             <?php elseif ($which == 'bottom'): ?>
@@ -44,10 +49,17 @@ class MetaSeo_Image_List_Table extends WP_List_Table {
                     <?php
                         $this->months_fillter('sldate1');
                         $this->meta_fillter('slmeta1', 'filter_meta_action');
+                    if(is_plugin_active(WPMSEO_ADDON_FILENAME) && (is_plugin_active('sitepress-multilingual-cms/sitepress.php') || is_plugin_active('polylang/polylang.php'))){
+                            $lang = !empty($_REQUEST['wpms_lang_list']) ? $_REQUEST['wpms_lang_list'] : '0';
+                            $sl_lang = apply_filters('wpms_get_languagesList','',$lang);
+                            echo $sl_lang;
+                        }
                     ?>
                 </div>
             <?php endif ?>
+            <?php
 
+            ?>
             <div class="alignleft actions">
                 <select name="image_mbulk_copy" class="mbulk_copy">
                     <option value="0"><?php _e('Bulk copy', 'wp-meta-seo') ?></option>
@@ -341,6 +353,20 @@ class MetaSeo_Image_List_Table extends WP_List_Table {
             $join = "LEFT JOIN (SELECT * FROM {$wpdb->prefix}postmeta WHERE meta_key = '_wp_attachment_image_alt') mt ON mt.post_id = posts.ID ";
         }
 
+        // query post by lang with polylang plugin
+        if(is_plugin_active(WPMSEO_ADDON_FILENAME) && is_plugin_active('polylang/polylang.php')){
+            if(isset($_GET['wpms_lang_list']) && $_GET['wpms_lang_list'] != '0'){
+                $join .= " INNER JOIN (SELECT * FROM $wpdb->term_relationships as ml INNER JOIN (SELECT * FROM $wpdb->terms WHERE slug='".$_GET['wpms_lang_list']."') mp ON mp.term_id = ml.term_taxonomy_id) ml ON ml.object_id = posts.ID ";
+            }
+        }
+
+        // query post by lang with WPML plugin
+        if(is_plugin_active(WPMSEO_ADDON_FILENAME) && is_plugin_active('sitepress-multilingual-cms/sitepress.php')){
+            if(isset($_GET['wpms_lang_list']) && $_GET['wpms_lang_list'] != '0'){
+                $join .= " INNER JOIN (SELECT * FROM ".$wpdb->prefix."icl_translations WHERE element_type LIKE 'post_%' AND language_code='".$_GET['wpms_lang_list']."') t ON t.element_id = $wpdb->posts.ID ";
+            }
+        }
+
         $query = "SELECT COUNT(ID) 
                 FROM $wpdb->posts as posts
                 ". $join ."
@@ -395,6 +421,7 @@ class MetaSeo_Image_List_Table extends WP_List_Table {
         $hidden = array();
         $sortable = $this->get_sortable_columns();
         $this->_column_headers = array($columns, $hidden, $sortable);
+
         $this->items = $wpdb->get_results($query);
     }
     
@@ -904,6 +931,13 @@ class MetaSeo_Image_List_Table extends WP_List_Table {
             $current_url = add_query_arg(array("metaseo_imgs_per_page" => intval($_POST['metaseo_imgs_per_page'])), $current_url);
             $redirect = true;
         }
+
+        if (!empty($_POST['wpms_lang_list'])) {
+            $current_url = add_query_arg(array("wpms_lang_list" => $_POST['wpms_lang_list']), $current_url);
+            $redirect = true;
+        }
+
+
 
         if ($redirect === true) {
             wp_redirect($current_url);

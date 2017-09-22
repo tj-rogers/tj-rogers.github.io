@@ -1,7 +1,7 @@
 /* CSS Document */
 /* ----- TOP NAV ----- */
 .top-nav-wrap {
-  margin-bottom: -2.25em;
+  margin-bottom: -1.75em;
   position: relative;
   z-index: 3; }
 
@@ -15,7 +15,10 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  background: #19656a; }
+  background: #19656a;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px; }
 
 .top-nav .menu {
   list-style: none;
@@ -29,7 +32,7 @@
       display: inline-block;
       vertical-align: top;
       font-size: 0.8em;
-      padding: 2em 1.25em;
+      padding: 1.5em 1.25em 1.5em 1.75em;
       color: #fff;
       font-weight: 100;
       text-transform: uppercase;
@@ -42,7 +45,10 @@
       .top-nav .menu li.contact a {
         color: #fff;
         background: #b59b39;
-        font-weight: 500 !important; }
+        font-weight: 500 !important;
+        -moz-border-radius: 0 100px 100px 0;
+        -webkit-border-radius: 0 100px 100px 0;
+        border-radius: 0 100px 100px 0; }
         .top-nav .menu li.contact a:hover {
           background: #92decd !important; }
     .top-nav .menu li.current-menu-item a {

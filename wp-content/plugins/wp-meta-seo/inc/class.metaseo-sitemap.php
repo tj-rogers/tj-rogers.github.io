@@ -29,7 +29,8 @@ class MetaSeo_Sitemap {
             "wpms_public_name_pages" => "",
             "wpms_public_name_posts" => "",
             "wpms_sitemap_posts" => array(),
-            "wpms_sitemap_pages" => array()
+            "wpms_sitemap_pages" => array(),
+            "wpms_sitemap_include_lang" => array()
         );
 
         if(is_plugin_active(WPMSEO_ADDON_FILENAME)) {
@@ -56,7 +57,7 @@ class MetaSeo_Sitemap {
         if (is_array($settings)) {
             $this->settings_sitemap = array_merge($this->settings_sitemap, $settings);
         }
-        
+
         add_action('admin_init', array($this, 'metaseo_field_settings_sitemap'));
         add_action('admin_enqueue_scripts', array($this, 'metaseo_sitemap_scripts'));
         add_action('wp_enqueue_scripts', array($this, 'site_metaseo_sitemap_scripts'));
@@ -131,6 +132,18 @@ class MetaSeo_Sitemap {
         add_settings_field('wpms_html_sitemap_position', __('HTML Sitemap Position', 'wp-meta-seo'), array($this, 'wpms_html_sitemap_position'), 'metaseo_settings_sitemap', 'metaseo_sitemap');
         add_settings_field('wpms_sitemap_add', __('Sitemap and robot.txt', 'wp-meta-seo'), array($this, 'wpms_sitemap_add'), 'metaseo_settings_sitemap', 'metaseo_sitemap', array('label_for' => __('You can include a link to your xml sitemap in the robot.txt. It helps some search engines to find it', 'wp-meta-seo')));
         add_settings_field('wpms_sitemap_root', __('Sitemap root', 'wp-meta-seo'), array($this, 'wpms_sitemap_root'), 'metaseo_settings_sitemap', 'metaseo_sitemap', array('label_for' => __('Add a copy of the lastest version of your .xml sitemap at the root of your WordPress install named sitemap.xml. Some SEO tools and search engines bots are searching for it.', 'wp-meta-seo')));
+
+        if(is_plugin_active(WPMSEO_ADDON_FILENAME)) {
+            if (is_plugin_active('sitepress-multilingual-cms/sitepress.php')) {
+                $label = __('WPML language', 'wp-meta-seo');
+                add_settings_field('wpms_sitemap_include_lang', $label, array($this, 'wpms_sitemap_include_lang'), 'metaseo_settings_sitemap', 'metaseo_sitemap', array('label_for' => __('Select a language to include in your sitemap, it will add the relative menu, post, page… content automatically', 'wp-meta-seo')));
+            }elseif(is_plugin_active('polylang/polylang.php')){
+                $label = __('Polylang language', 'wp-meta-seo');
+                add_settings_field('wpms_sitemap_include_lang', $label, array($this, 'wpms_sitemap_include_lang'), 'metaseo_settings_sitemap', 'metaseo_sitemap', array('label_for' => __('Select a language to include in your sitemap, it will add the relative menu, post, page… content automatically', 'wp-meta-seo')));
+            }
+        }
+
+
         if(is_plugin_active(WPMSEO_ADDON_FILENAME)) {
             add_settings_field('wpms_sitemap_link_check', __('Sitemap link check', 'wp-meta-seo'), array($this, 'wpms_sitemap_link_check'), 'metaseo_settings_sitemap', 'metaseo_sitemap', array('label_for' => __('A page is automatically generated to display your HTML sitemap. You can also use any of the existing pages.', 'wp-meta-seo')));
         }
@@ -172,6 +185,13 @@ class MetaSeo_Sitemap {
             </div>
             <?php
         }
+    }
+
+    /* Display field sitemap lang */
+    public function wpms_sitemap_include_lang() {
+        $lang = $this->settings_sitemap['wpms_sitemap_include_lang'];
+        $sl_lang = apply_filters('wpms_get_languagesList','',$lang,'multiple');
+        echo $sl_lang;
     }
     
     /* Display field sitemap root */
@@ -301,7 +321,7 @@ class MetaSeo_Sitemap {
 
         $xml = new DomDocument('1.0', 'utf-8');
         $home_url = site_url('/');
-        $xml_stylesheet_path = ( defined('WP_CONTENT_DIR') ) ? $home_url . basename(WP_CONTENT_DIR) : $home_url . 'wp-content';
+        $xml_stylesheet_path = content_url();
         $xml_stylesheet_path .= ( defined('WP_PLUGIN_DIR') ) ? '/' . basename(WP_PLUGIN_DIR) . '/wp-meta-seo/wpms-sitemap.xsl' : '/plugins/wp-meta-seo/sitemap.xsl';
 
         $xslt = $xml->createProcessingInstruction('xml-stylesheet', "type=\"text/xsl\" href=\"$xml_stylesheet_path\"");
@@ -363,6 +383,8 @@ class MetaSeo_Sitemap {
                                         }
                                         $priority->appendChild($xml->createTextNode($this->settings_sitemap['wpms_sitemap_menus'][$menu_id]['priority']));
                                     }
+
+                                    $this->wpms_create_xml_lang($xml,$menu_id,'wpms_sitemap_menus','post_post',$loc);
                                 }
                             }
                         }
@@ -423,6 +445,7 @@ class MetaSeo_Sitemap {
                                     }
                                     $priority->appendChild($xml->createTextNode($menupriority));
                                 }
+                                $this->wpms_create_xml_lang($xml,$menu_id,'wpms_sitemap_menus','post_post',$loc);
                             }
                         }
                     }
@@ -434,6 +457,7 @@ class MetaSeo_Sitemap {
         $res = $this->wpms_get_posts_sitemap();
         if (!empty($res)) {
             foreach ($res as $val) {
+                /* get translation post id */
                 $permalink = get_permalink($val->ID);
                 if (!in_array($permalink, $list_links)) {
                     $list_links[] = $permalink;
@@ -467,6 +491,8 @@ class MetaSeo_Sitemap {
                         }
                         $priority->appendChild($xml->createTextNode($postpriority));
                     }
+
+                    $this->wpms_create_xml_lang($xml,$val->ID,'wpms_sitemap_posts','post_post',$loc);
                 }
             }
         }
@@ -530,6 +556,8 @@ class MetaSeo_Sitemap {
                                     }
                                     $priority->appendChild($xml->createTextNode($postpriority));
                                 }
+
+                                $this->wpms_create_xml_lang($xml,$val->ID,'wpms_sitemap_'.$post_type,'post_post',$loc);
                             }
                         }
                     }
@@ -582,6 +610,7 @@ class MetaSeo_Sitemap {
         if (!empty($res)) {
             $page_on_front = get_option('page_on_front');
             foreach ($res as $val) {
+                /* get translation post id */
                 $permalink = get_permalink($val->ID);
                 if (!in_array($permalink, $list_links)) {
                     $list_links[] = $permalink;
@@ -615,6 +644,8 @@ class MetaSeo_Sitemap {
                         }
                         $priority->appendChild($xml->createTextNode($pagepriority));
                     }
+
+                    $this->wpms_create_xml_lang($xml,$val->ID,'wpms_sitemap_pages','post_page',$loc);
                 }
             }
         }
@@ -659,6 +690,77 @@ class MetaSeo_Sitemap {
             $xml->save(ABSPATH . $sitemap_xml_name);
         }
         $this->wpms_sitemap_info();
+    }
+
+    /*
+     *  return translation post id
+     */
+    public function wpms_get_translation_id($id,$el_type,$setting_name) {
+        $valID = $id;
+        if(is_plugin_active(WPMSEO_ADDON_FILENAME) && is_plugin_active('sitepress-multilingual-cms/sitepress.php')){
+            global $sitepress;
+            if(!empty($this->settings_sitemap[$setting_name][$id]['lang'])){
+                $trid = $sitepress->get_element_trid($id, $el_type);
+                if ($trid) {
+                    $translations = $sitepress->get_element_translations($trid, $el_type, true, true, true);
+                    foreach ($translations as $translation) {
+                        if(isset($translation->language_code) && $translation->language_code == $this->settings_sitemap[$setting_name][$id]['lang']){
+                            $valID = $translation->element_id;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return $valID;
+    }
+    
+    /*
+     * create xml language
+     */
+    public function wpms_create_xml_lang($xml,$id,$setting_name,$el_type,$loc){
+        if(is_plugin_active(WPMSEO_ADDON_FILENAME) && is_plugin_active('sitepress-multilingual-cms/sitepress.php')){
+            if(!empty($this->settings_sitemap['wpms_sitemap_include_lang'])){
+                global $sitepress;
+                $trid = $sitepress->get_element_trid($id, $el_type);
+                if ($trid) {
+                    // get post $translation
+                    $translations = $sitepress->get_element_translations($trid, $el_type, true, true, true);
+                    foreach ($translations as $translation) {
+                        if(isset($translation->language_code) && in_array($translation->language_code,$this->settings_sitemap['wpms_sitemap_include_lang'])){
+                            $permalink = get_permalink($translation->element_id);
+                            $node = $xml->appendChild($xml->createElement('xhtml:link')); // can use $xml->appendChild($xml->createElementNS('http://www.w3.org/1999/xhtml', 'xhtml:link'));
+                            $node->setAttribute('rel', 'alternate');
+                            $node->setAttribute('hreflang', $translation->language_code);
+                            $node->setAttribute('href', $permalink);
+                            $loc->parentNode->appendChild($node);
+                        }
+                    }
+                }
+            }
+        }elseif(is_plugin_active(WPMSEO_ADDON_FILENAME) && is_plugin_active('polylang/polylang.php')){
+            if(!empty($this->settings_sitemap['wpms_sitemap_include_lang'])){
+                global $polylang;
+                $model = $polylang->filters->links_model->model;
+                $model_post = $polylang->filters->links_model->model->post;
+                foreach ( $model->get_languages_list() as $language ) {
+                    $value = $model_post->get_translation( $id, $language );
+                    if ( ! $value ) {
+
+                    }else{
+                        $lang = pll_get_post_language($value);
+                        if(isset($lang) && in_array($lang,$this->settings_sitemap['wpms_sitemap_include_lang'])){
+                            $permalink = get_permalink($value);
+                            $node = $xml->appendChild($xml->createElementNS('http://www.w3.org/1999/xhtml', 'xhtml:link'));
+                            $node->setAttribute('rel', 'alternate');
+                            $node->setAttribute('hreflang', $lang);
+                            $node->setAttribute('href', $permalink);
+                            $loc->parentNode->appendChild($node);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /* Retrieves the full permalink for the current post or post ID */
@@ -1484,7 +1586,6 @@ ORDER BY p.post_date DESC",array($post_type,$taxo,$cat->slug));
      *  Display list menu in sitemap settings
      */
     public function wpms_loop($menuID, $level, $settings_sitemap, $term) {
-        global $wpdb;
         $args = array(
             'post_type' => 'nav_menu_item',
             'posts_per_page' => -1,
@@ -1526,18 +1627,21 @@ ORDER BY p.post_date DESC",array($post_type,$taxo,$cat->slug));
                 $select_frequency = $this->wpms_view_select_frequency('frequency_menu_' . $submenu->ID, '_metaseo_settings_sitemap[wpms_sitemap_menus][' . $submenu->post_id . '][frequency]', $settings_sitemap['wpms_sitemap_menus'][$submenu->ID]['frequency']);
 
                 if (empty($settings_sitemap['wpms_check_firstsave'])) {
-                    $checkbox = $space . '<input class="cb_sitemaps_menu wpms_xmap_menu nav_menu' . $term->slug . '" checked name="_metaseo_settings_sitemap[wpms_sitemap_menus][' . $submenu->ID . '][menu_id]" type="checkbox" value="' . $submenu->ID . '">';
+                    $checkbox = $space . '<input id="wpms_sitemap_menus_' . $submenu->ID . '" class="cb_sitemaps_menu wpms_xmap_menu nav_menu' . $term->slug . '" checked name="_metaseo_settings_sitemap[wpms_sitemap_menus][' . $submenu->ID . '][menu_id]" type="checkbox" value="' . $submenu->ID . '">';
                 } else {
                     if (isset($settings_sitemap['wpms_sitemap_menus'][$submenu->ID]['menu_id']) && $settings_sitemap['wpms_sitemap_menus'][$submenu->ID]['menu_id'] == $submenu->ID) {
-                        $checkbox = $space . '<input class="cb_sitemaps_menu wpms_xmap_menu nav_menu' . $term->slug . '" checked name="_metaseo_settings_sitemap[wpms_sitemap_menus][' . $submenu->ID . '][menu_id]" type="checkbox" value="' . $submenu->ID . '">';
+                        $checkbox = $space . '<input id="wpms_sitemap_menus_' . $submenu->ID . '" class="cb_sitemaps_menu wpms_xmap_menu nav_menu' . $term->slug . '" checked name="_metaseo_settings_sitemap[wpms_sitemap_menus][' . $submenu->ID . '][menu_id]" type="checkbox" value="' . $submenu->ID . '">';
                     } else {
-                        $checkbox = $space . '<input class="cb_sitemaps_menu wpms_xmap_menu nav_menu' . $term->slug . '" name="_metaseo_settings_sitemap[wpms_sitemap_menus][' . $submenu->ID . '][menu_id]" type="checkbox" value="' . $submenu->ID . '">';
+                        $checkbox = $space . '<input id="wpms_sitemap_menus_' . $submenu->ID . '" class="cb_sitemaps_menu wpms_xmap_menu nav_menu' . $term->slug . '" name="_metaseo_settings_sitemap[wpms_sitemap_menus][' . $submenu->ID . '][menu_id]" type="checkbox" value="' . $submenu->ID . '">';
                     }
                 }
 
                 $this->html .= '<div class="wpms_row">';
                 $this->html .= '<div style="float:left;line-height:30px">';
-                $this->html .= $checkbox . $title;
+                $this->html .= '<div class="pure-checkbox">';
+                $this->html .= $checkbox;
+                $this->html .= '<label for="wpms_sitemap_menus_' . $submenu->ID . '">'. $title .'</label>';
+                $this->html .= '</div>';
                 $this->html .= '</div>';
                 $this->html .= '<div style="margin-left:200px">' . $select_priority . $select_frequency . '</div>';
                 $this->html .= '</div>';
@@ -1549,12 +1653,23 @@ ORDER BY p.post_date DESC",array($post_type,$taxo,$cat->slug));
     /* Ajax generate sitemap to xml file */
     public function wpms_regenerate_sitemaps() {
         $info_file = $this->wpms_get_path_filename_sitemap();
-        $wpms_url_robot = ABSPATH . "robots.txt";
+        $wpms_url_robot = get_home_path() . 'robots.txt';
         $wpms_url_home = site_url('/');
-        $xml_url = site_url('/') . $info_file['name'];
         $this->metaseo_create_sitemap($this->wpms_sitemap_name);
         if ($this->settings_sitemap['wpms_sitemap_root'] == 1) {
             $this->metaseo_create_sitemap($this->wpms_sitemap_default_name);
+        }
+
+        if (isset($this->settings_sitemap['wpms_sitemap_add']) && $this->settings_sitemap['wpms_sitemap_add'] == 1) {
+            if (!file_exists($wpms_url_robot) && !is_multisite() ) {
+                ob_start();
+                error_reporting( 0 );
+                do_robots();
+                $robots_content = ob_get_clean();
+
+                $f = fopen( $wpms_url_robot, 'x' );
+                fwrite( $f, $robots_content );
+            }
         }
 
         if (file_exists($wpms_url_robot) && !is_multisite()) {
@@ -1564,9 +1679,6 @@ ORDER BY p.post_date DESC",array($post_type,$taxo,$cat->slug));
                 $file_content = file_get_contents($wpms_url_robot);
                 if (isset($this->settings_sitemap['wpms_sitemap_add']) && $this->settings_sitemap['wpms_sitemap_add'] == 1 && !preg_match('|Sitemap: ' . $wpms_url_home . $this->wpms_sitemap_name . '|', $file_content)) {
                     file_put_contents($wpms_url_robot, $file_content . "\nSitemap: " . $wpms_url_home . $this->wpms_sitemap_name);
-                } elseif (preg_match("|Sitemap: " . $wpms_url_home . $this->wpms_sitemap_name . "|", $file_content) && !isset($_POST['gglstmp_checkbox'])) {
-                    $file_content = preg_replace("|\nSitemap: " . $wpms_url_home . $this->wpms_sitemap_name . "|", '', $file_content);
-                    file_put_contents($wpms_url_robot, $file_content);
                 }
             } else {
                 $error = __('Cannot edit "robots.txt". Check your permissions', 'wp-meta-seo');
@@ -1582,7 +1694,7 @@ ORDER BY p.post_date DESC",array($post_type,$taxo,$cat->slug));
     /* Display priority for each item */
     public function wpms_view_select_priority($id, $name, $selected) {
         $values = array('1' => '100%', '0.9' => '90%', '0.8' => '80%', '0.7' => '70%', '0.6' => '60%', '0.5' => '50%');
-        $select = '<select id="' . $id . '" name="' . $name . '">';
+        $select = '<select id="' . $id . '" name="' . $name . '" class="wpmsleft">';
         $select .= '<option value="1">' . __('Priority', 'wp-meta-seo') . '</option>';
         foreach ($values as $k => $v) {
             if ($k == $selected) {
@@ -1594,11 +1706,11 @@ ORDER BY p.post_date DESC",array($post_type,$taxo,$cat->slug));
         $select .= '</select>';
         return $select;
     }
-    
+
     /* Display frequency for each item */
     public function wpms_view_select_frequency($id, $name, $selected) {
         $values = array('always' => 'Always', 'hourly' => 'Hourly', 'daily' => 'Daily', 'weekly' => 'Weekly', 'monthly' => 'Monthly', 'yearly' => 'Yearly', 'never' => 'Never');
-        $select = '<select id="' . $id . '" name="' . $name . '">';
+        $select = '<select id="' . $id . '" name="' . $name . '" class="wpmsleft">';
         $select .= '<option value="monthly">' . __('Frequency', 'wp-meta-seo') . '</option>';
         foreach ($values as $k => $v) {
             if ($k == $selected) {
@@ -1676,6 +1788,11 @@ ORDER BY p.post_date DESC",array($post_type,$taxo,$cat->slug));
             }
 
             $lists_selected["wpms_sitemap_customUrl"] = array();
+
+            // save setting include lang
+            if(isset($_POST['wpms_lang_list']) && is_array($_POST['wpms_lang_list'])){
+                $settings_sitemap['wpms_sitemap_include_lang'] = $_POST['wpms_lang_list'];
+            }
         }
 
         foreach ($lists_selected as $k => $v) {

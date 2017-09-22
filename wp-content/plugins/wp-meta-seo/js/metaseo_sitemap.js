@@ -107,7 +107,7 @@
                         var cat_id = $(v).data('category');
                         var priority = $('#priority_'+post_type+'_' + id).val();
                         var frequency = $('#frequency_'+post_type+'_' + id).val();
-                        custom_post_type[post_type][cat_id + '-' + id] = {'post_id': id, 'priority': priority, 'frequency': frequency};
+                        custom_post_type[post_type][id] = {'post_id': id, 'priority': priority, 'frequency': frequency};
                     }
                 });
             });
@@ -210,7 +210,8 @@
                 wpms_display_order_pages: $('.wpms_display_order_pages').val(),
                 wpms_display_order_menus: $('.wpms_display_order_menus').val(),
                 wpms_display_order_urls: $('.wpms_display_order_urls').val(),
-                wpms_sitemap_taxonomies: taxonomies
+                wpms_sitemap_taxonomies: taxonomies,
+                wpms_lang_list: $('.wpms_lang_list').val()
             };
 
             $.each(wpmseositemap.post_type,function(i,post_type){

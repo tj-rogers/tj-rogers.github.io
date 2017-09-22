@@ -23,6 +23,7 @@ class MetaSeo_Admin {
             "metaseo_title_home" => "",
             "metaseo_desc_home" => "",
             "metaseo_showfacebook" => "",
+            "metaseo_showfbappid" => "",
             "metaseo_showtwitter" => "",
             "metaseo_twitter_card" => "summary",
             "metaseo_showkeywords" => 0,
@@ -591,7 +592,7 @@ class MetaSeo_Admin {
         }
 
         // meta title filled
-        if (($_POST['datas']['meta_title'] != '' && strlen($_POST['datas']['meta_title']) <= self::$title_length)) {
+        if (($_POST['datas']['meta_title'] != '' && mb_strlen($_POST['datas']['meta_title'],'UTF-8') <= self::$title_length)) {
             $output .= $this->metaseo_create_field('metatitle', $tooltip_page['meta_title'], 'done', __('Meta title filled', 'wp-meta-seo'), 1);
             $check++;
         } else {
@@ -599,7 +600,7 @@ class MetaSeo_Admin {
         }
 
         // desc filled
-        if (($_POST['datas']['meta_desc'] != '' && strlen($_POST['datas']['meta_desc']) <= self::$desc_length)) {
+        if (($_POST['datas']['meta_desc'] != '' && mb_strlen($_POST['datas']['meta_desc'],'UTF-8') <= self::$desc_length)) {
             $output .= $this->metaseo_create_field('metadesc', $tooltip_page['meta_desc'], 'done', __('Meta description filled', 'wp-meta-seo'), 1);
             $check++;
         } else {
@@ -935,6 +936,7 @@ class MetaSeo_Admin {
         add_settings_field('metaseo_title_home', __('Homepage meta title', 'wp-meta-seo'), array($this, 'metaseo_title_home'), 'metaseo_settings', 'metaseo_dashboard', array('label_for' => __('You can define your home page meta title in the content itself (a page, a post category…), if for some reason it’s not possible, use this setting', 'wp-meta-seo')));
         add_settings_field('metaseo_desc_home', __('Homepage meta description', 'wp-meta-seo'), array($this, 'metaseo_desc_home'), 'metaseo_settings', 'metaseo_dashboard', array('label_for' => __('You can define your home page meta description in the content itself (a page, a post category…), if for some reason it’s not possible, use this setting', 'wp-meta-seo')));
         add_settings_field('metaseo_showfacebook', __('Facebook profile URL', 'wp-meta-seo'), array($this, 'showfacebook'), 'metaseo_settings', 'metaseo_dashboard', array('label_for' => __('Used as profile in case of social sharing content on Facebook', 'wp-meta-seo')));
+        add_settings_field('metaseo_showfbappid', __('Facebook App ID', 'wp-meta-seo'), array($this, 'showfbappid'), 'metaseo_settings', 'metaseo_dashboard', array('label_for' => __('Used as facebook app ID in case of social sharing content on Facebook', 'wp-meta-seo')));
         add_settings_field('metaseo_showtwitter', __('Twitter Username', 'wp-meta-seo'), array($this, 'showtwitter'), 'metaseo_settings', 'metaseo_dashboard', array('label_for' => __('Used as profile in case of social sharing content on Twitter', 'wp-meta-seo')));
         add_settings_field('metaseo_twitter_card', __('The default card type to use', 'wp-meta-seo'), array($this, 'showtwittercard'), 'metaseo_settings', 'metaseo_dashboard', array('label_for' => __('Choose the Twitter card size generated when sharing a content', 'wp-meta-seo')));
         add_settings_field('metaseo_metatitle_tab', __('Meta title as page title', 'wp-meta-seo'), array($this, 'showmetatitletab'), 'metaseo_settings', 'metaseo_dashboard', array('label_for' => __('Usually not recommended as meta information is for search engines and content title for readers, but in some case... :)', 'wp-meta-seo')));
@@ -1119,7 +1121,15 @@ class MetaSeo_Admin {
         $face = isset($this->settings['metaseo_showfacebook']) ? $this->settings['metaseo_showfacebook'] : '';
         echo '<input id="metaseo_showfacebook" name="_metaseo_settings[metaseo_showfacebook]" type="text" value="' . esc_attr($face) . '" size="50"/>';
     }
-    
+
+    /*
+     * Display fb app id input
+     */
+    public function showfbappid() {
+        $appid = isset($this->settings['metaseo_showfbappid']) ? $this->settings['metaseo_showfbappid'] : '';
+        echo '<input id="metaseo_showfbappid" name="_metaseo_settings[metaseo_showfbappid]" type="text" value="' . esc_attr($appid) . '" size="50"/>';
+    }
+
     /*
      * Display showtwitter input
      */
@@ -1250,7 +1260,7 @@ class MetaSeo_Admin {
             'wpmetaseoAdmin', plugins_url('js/metaseo_admin.js', dirname(__FILE__)), array('jquery'), WPMSEO_VERSION, true
         );
 
-        if(in_array($current_screen->base, $array_menu) || $pagenow == 'post.php'){
+        if(in_array($current_screen->base, $array_menu) || $pagenow == 'post.php' || $pagenow == 'post-new.php'){
             wp_enqueue_style('wpmetaseoAdmin', plugins_url('css/metaseo_admin.css', dirname(__FILE__)), array(), WPMSEO_VERSION);
             wp_enqueue_style('tooltip-metaimage', plugins_url('/css/tooltip-metaimage.css', dirname(__FILE__)), array(), WPMSEO_VERSION);
             wp_enqueue_style('style', plugins_url('/css/style.css', dirname(__FILE__)), array(), WPMSEO_VERSION);
@@ -1760,6 +1770,18 @@ class MetaSeo_Admin {
                     require_once( WPMETASEO_PLUGIN_DIR . 'inc/pages/notification.php' );
                     break;
                 case 'metaseo_google_sitemap':
+                    if(is_plugin_active(WPMSEO_ADDON_FILENAME)) {
+                        // remove filter by lang
+                        if (is_plugin_active('sitepress-multilingual-cms/sitepress.php')) {
+                            global $sitepress;
+                            remove_filter('terms_clauses', array($sitepress,'terms_clauses'));
+                        }elseif(is_plugin_active('polylang/polylang.php')){
+                            global $polylang;
+                            $filters_term = $polylang->filters_term;
+                            remove_filter('terms_clauses', array($filters_term, 'terms_clauses'));
+                        }
+                    }
+
                     if (!class_exists('MetaSeo_Content_List_Table')) {
                         require_once( WPMETASEO_PLUGIN_DIR . '/inc/class.metaseo-sitemap.php' );
                     }

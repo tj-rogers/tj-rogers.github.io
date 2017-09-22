@@ -194,26 +194,8 @@ function msUpdateDesc() {
             snippet.find('.desc span.content').html(desc);
         });
     } else {
-        jQuery('#' + wpmseoMetaboxL10n.field_prefix + 'desc-length').addClass('length-true').removeClass('length-wrong').html('<span class="good">' + wpmseoMetaboxL10n.wpmseo_meta_desc_length + '</span>');
-        // Clear the generated description
-        snippet.find('.desc span.content').html('');
-
-
-        if (typeof tinyMCE !== 'undefined' && tinyMCE.get('excerpt') !== null) {
-            desc = tinyMCE.get('excerpt').getContent();
-            desc = msClean(desc);
-        }
-
-        if (typeof tinyMCE !== 'undefined' && tinyMCE.get('content') !== null && desc.length === 0) {
-            desc = tinyMCE.get('content').getContent();
-
-            desc = msClean(desc);
-        }
-
-        desc = desc.substr(0, wpmseoMetaboxL10n.wpmseo_meta_desc_length);
-        desc = msSanitizeDesc(desc);
-
-        snippet.find('.desc span.autogen').html(desc);
+        var len = wpmseoMetaboxL10n.wpmseo_meta_desc_length;
+        metaseo_status_length(len, '#' + wpmseoMetaboxL10n.field_prefix + 'desc-length');
     }
 }
 

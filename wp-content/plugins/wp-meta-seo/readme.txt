@@ -3,7 +3,8 @@ Contributors: JoomUnited
 Tags: google, webmaster tools, keywords, meta, meta description, meta keywords, meta title, robots meta, search engine optimization, seo, wordpress seo, yahoo, image optimization, image resize, custom post seo, redirect, redirection, 301, broken link
 Requires at least: 4.0
 Tested up to: 4.8.1
-Stable tag: 3.5.0
+Stable tag: 3.5.2
+Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -177,6 +178,7 @@ The redirect manager will help you to fix all types of 404 errors you can encoun
 * WP Table Manager: <a href="https://www.joomunited.com/wordpress-products/wp-file-download" rel="friend">https://www.joomunited.com/wordpress-products/wp-file-download</a>
 * WP Speed of Light: <a href="https://www.joomunited.com/wordpress-products/wp-speed-of-light" rel="friend">https://www.joomunited.com/wordpress-products/wp-speed-of-light</a>
 * WP Latest Posts: <a href="https://www.joomunited.com/wordpress-products/wp-latest-posts" rel="friend">https://www.joomunited.com/wordpress-products/wp-latest-posts</a>
+* WP Smart Editor: <a href="https://wordpress.org/plugins/wp-smart-editor" rel="friend">https://wordpress.org/plugins/wp-smart-editor</a>
 
 
 = Support =      
@@ -269,6 +271,15 @@ It could be! if you have a lot of pages that need to be indexed with no specific
 1. Google Analytics integration with all main information and view selection
 
 == Changelog ==
+
+= 3.5.2 =
+* Fix : Create robots.txt file for multisite
+* Fix : Add meta tags og:type and fb:app_id (Facebook page share)
+
+= 3.5.1 =
+* Language filter for meta, images and sitemap XML
+* Fix : Encoding issue on dashboard page
+* Fix : JS error when empty post content
 
 = 3.5.0 =
 * Fix : Check content of page builders: Visual composer, DIVI Builder, Beaver Builder, ACF, Site Origine, Themify builder, Live composer, Elementor plugins

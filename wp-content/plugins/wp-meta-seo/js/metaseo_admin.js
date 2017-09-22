@@ -1002,6 +1002,15 @@ jQuery(document).ready(function ($) {
         });
     });
 
+    $('.wpms_lang_list').bind('change', function () {
+        var value = $(this).val();
+        $('.wpms_lang_list').each(function (i, e) {
+            if ($(e).val() != value) {
+                $(e).val(value);
+            }
+        });
+    });
+
     $('.mbulk_copy').bind('change', function () {
         var value = $(this).val();
         $('.mbulk_copy').each(function (i, e) {

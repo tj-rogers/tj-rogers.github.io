@@ -52,3 +52,17 @@
 a:active {
     outline: 0px dashed red;
 }
+
+.wpmsleft{
+    float: left;
+}
+
+.wpms_langcheckbox{
+    line-height: 28px;
+    vertical-align: middle;
+}
+
+#menu_source_menus .wpms_row{
+    width: 100%;
+    float: left;
+}

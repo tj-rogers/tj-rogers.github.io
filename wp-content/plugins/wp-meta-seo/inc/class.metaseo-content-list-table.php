@@ -126,8 +126,15 @@ class MetaSeo_Content_List_Table extends WP_List_Table {
 
         echo sprintf('<select name="post_type_filter" class="metaseo-filter">%1$s</select>', $options);
         echo $sl_duplicate;
+        if(is_plugin_active(WPMSEO_ADDON_FILENAME) && (is_plugin_active('sitepress-multilingual-cms/sitepress.php') || is_plugin_active('polylang/polylang.php'))){
+            $lang = !empty($_REQUEST['wpms_lang_list']) ? $_REQUEST['wpms_lang_list'] : '0';
+            $sl_lang = apply_filters('wpms_get_languagesList','',$lang);
+            echo $sl_lang;
+        }
         echo '<input type="submit" name="do_filter" id="post-query-submit" class="wpmsbtn wpmsbtn_small wpmsbtn_secondary" value="'.__('Filter', 'wp-meta-seo').'">';
         echo $sl_bulk . $btn_bulk;
+
+
         echo "</div>";
     }
     
@@ -293,13 +300,30 @@ class MetaSeo_Content_List_Table extends WP_List_Table {
                 . " FROM $wpdb->posts "
                 . " LEFT JOIN (SELECT * FROM $wpdb->postmeta WHERE meta_key = '_metaseo_metatitle') mt ON mt.post_id = $wpdb->posts.ID "
                 . " LEFT JOIN (SELECT * FROM $wpdb->postmeta WHERE meta_key = '_metaseo_metadesc') md ON md.post_id = $wpdb->posts.ID "
-                . " LEFT JOIN (SELECT * FROM $wpdb->postmeta WHERE meta_key = '_metaseo_metakeywords') mk ON mk.post_id = $wpdb->posts.ID "
-                . " WHERE " . implode(' AND ', $where) . $orderStr;
+                . " LEFT JOIN (SELECT * FROM $wpdb->postmeta WHERE meta_key = '_metaseo_metakeywords') mk ON mk.post_id = $wpdb->posts.ID ";
+        // query post by lang with polylang plugin
+        if(is_plugin_active(WPMSEO_ADDON_FILENAME) && is_plugin_active('polylang/polylang.php')){
+            if(isset($_GET['wpms_lang_list']) && $_GET['wpms_lang_list'] != '0'){
+                $query .= " INNER JOIN (SELECT * FROM $wpdb->term_relationships as ml INNER JOIN (SELECT * FROM $wpdb->terms WHERE slug='".$_GET['wpms_lang_list']."') mp ON mp.term_id = ml.term_taxonomy_id) ml ON ml.object_id = $wpdb->posts.ID ";
+            }
+        }
+
+        // query post by lang with WPML plugin
+        if(is_plugin_active(WPMSEO_ADDON_FILENAME) && is_plugin_active('sitepress-multilingual-cms/sitepress.php')){
+            if(isset($_GET['wpms_lang_list']) && $_GET['wpms_lang_list'] != '0'){
+                $query .= " INNER JOIN (SELECT * FROM ".$wpdb->prefix."icl_translations WHERE element_type LIKE 'post_%' AND language_code='".$_GET['wpms_lang_list']."') t ON t.element_id = $wpdb->posts.ID ";
+            }
+        }
+
+        $query .= " WHERE " . implode(' AND ', $where) . $orderStr;
+
+
         if (!empty($_REQUEST['metaseo_posts_per_page'])) {
             $_per_page = intval($_REQUEST['metaseo_posts_per_page']);
         } else {
             $_per_page = 0;
         }
+
         $per_page = get_user_option('metaseo_posts_per_page');
         if ($per_page !== false) {
             if ($_per_page && $_per_page !== $per_page) {
@@ -495,10 +519,10 @@ class MetaSeo_Content_List_Table extends WP_List_Table {
 
         $current_url = set_url_scheme('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         $redirect = false;
-
         if (isset($_POST['do_filter'])) {
             $current_url = add_query_arg(array("post_type_filter" => $_POST['post_type_filter']), $current_url);
             $current_url = add_query_arg(array("wpms_duplicate_meta" => $_POST['wpms_duplicate_meta']), $current_url);
+            $current_url = add_query_arg(array("wpms_lang_list" => $_POST['wpms_lang_list']), $current_url);
             $redirect = true;
         }
 

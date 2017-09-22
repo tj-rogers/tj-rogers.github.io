@@ -596,7 +596,7 @@ class WPMSEO_Metabox extends WPMSEO_Meta {
     
     /* load param meta title */
     function metaseo_check_metatitle($meta_title, $tooltip_page, $meta_analysis) {
-        if (($meta_title != '' && strlen($meta_title) <= self::$meta_title_length) || (!empty($meta_analysis) && !empty($meta_analysis['metatitle']))) {
+        if (($meta_title != '' && mb_strlen($meta_title,'UTF-8') <= self::$meta_title_length) || (!empty($meta_analysis) && !empty($meta_analysis['metatitle']))) {
             $output = $this->metaseo_create_field('metatitle', $tooltip_page['meta_title'], 'done', __('Meta title filled', 'wp-meta-seo'), 1);
             $this->perc_score++;
         } else {
@@ -607,7 +607,7 @@ class WPMSEO_Metabox extends WPMSEO_Meta {
 
     /* load param meta description */
     function metaseo_check_metadesc($meta_desc, $tooltip_page, $meta_analysis) {
-        if (($meta_desc != '' && strlen($meta_desc) <= self::$meta_length) || (!empty($meta_analysis) && !empty($meta_analysis['metadesc']))) {
+        if (($meta_desc != '' && mb_strlen($meta_desc,'UTF-8') <= self::$meta_length) || (!empty($meta_analysis) && !empty($meta_analysis['metadesc']))) {
             $output = $this->metaseo_create_field('metadesc', $tooltip_page['meta_desc'], 'done', __('Meta description filled', 'wp-meta-seo'), 1);
             $this->perc_score++;
         } else {

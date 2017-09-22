@@ -4,7 +4,7 @@
  * Plugin Name: WP Meta SEO
  * Plugin URI: http://www.joomunited.com/wordpress-products/wp-meta-seo
  * Description: WP Meta SEO is a plugin for WordPress to fill meta for content, images and main SEO info in a single view.
- * Version: 3.5.0
+ * Version: 3.5.2
  * Text Domain: wp-meta-seo
  * Domain Path: /languages
  * Author: JoomUnited
@@ -75,7 +75,7 @@ if (!defined('URL'))
     define('URL', get_site_url());
 
 if (!defined('WPMSEO_VERSION')) {
-    define('WPMSEO_VERSION', '3.5.0');
+    define('WPMSEO_VERSION', '3.5.2');
 }
 
 if (!defined('WPMS_CLIENTID')) {
@@ -351,6 +351,19 @@ if (is_admin()) {
         $current_url = 'http' . (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         $current_url = esc_url($current_url);
 
+        if ( is_front_page() || is_home() ) {
+            $type = 'website';
+        }
+        elseif ( is_singular() ) {
+            $type = 'article';
+        }
+        else {
+            // We use "object" for archives etc. as article doesn't apply there.
+            $type = 'object';
+        }
+
+        /* for facebook application id */
+        $fbapp_id = $settings['metaseo_showfbappid'];
         // create List array meta tag
         $patterns = array(
             'twitter_image' => array(
@@ -399,6 +412,14 @@ if (is_admin()) {
                 '#<meta property="og:url" [^<>]+ ?>#i',
                 '<meta property="og:url" content="' . $current_url . '" />',
                 ($current_url != '' ? true : false)),
+            'og:type' => array(
+                '#<meta property="og:type" [^<>]+ ?>#i',
+                '<meta property="og:type" content="' . $type . '" />',
+                ($type != '' ? true : false)),
+            'fb:app_id' => array(
+                '#<meta property="fb:app_id" [^<>]+ ?>#i',
+                '<meta property="fb:app_id" content="' . $fbapp_id . '" />',
+                ($type != '' ? true : false)),
             'og:title' => array(
                 '#<meta property="og:title" [^<>]+ ?>#i',
                 '<meta property="og:title" content="' . $meta_facebook_title . '" />',
@@ -439,6 +460,10 @@ if (is_admin()) {
         // unset meta tag if empty value
         if ($meta_keywords_esc == '') {
             unset($patterns['keywords']);
+        }
+
+        if (!isset($fbapp_id) || (isset($fbapp_id) && $fbapp_id == '')) {
+            unset($patterns['fb:app_id']);
         }
 
         if ($meta_twitter_site == '') {

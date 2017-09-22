@@ -268,7 +268,7 @@ class MetaSeo_Dashboard {
                     $meta_analysis = array();
 
                 $meta_title = get_post_meta($post->ID, '_metaseo_metatitle', true);
-                if (($meta_title != '' && strlen($meta_title) <= self::$meta_title_length ) || (!empty($meta_analysis) && !empty($meta_analysis['metatitle']))) {
+                if (($meta_title != '' && mb_strlen($meta_title,'UTF-8') <= self::$meta_title_length ) || (!empty($meta_analysis) && !empty($meta_analysis['metatitle']))) {
                     $metatitle_filled++;
                 }
             }
@@ -325,7 +325,7 @@ class MetaSeo_Dashboard {
                     $meta_analysis = array();
 
                 $meta_desc = get_post_meta($post->ID, '_metaseo_metadesc', true);
-                if (($meta_desc != '' && strlen($meta_desc) <= self::$meta_desc_length ) || (!empty($meta_analysis) && !empty($meta_analysis['metadesc']))) {
+                if (($meta_desc != '' && mb_strlen($meta_desc,'UTF-8') <= self::$meta_desc_length ) || (!empty($meta_analysis) && !empty($meta_analysis['metadesc']))) {
                     $metadesc_filled++;
                 }
             }

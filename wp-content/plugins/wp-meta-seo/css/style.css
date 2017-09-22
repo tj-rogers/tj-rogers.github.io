@@ -1,15 +1,8 @@
 .search-box{padding: 0px 0px 20px 0px; float: left}
 .img_advan{border: #CCC 1px solid;border-radius: 0px 30px 30px 0px}
 .listpre img{float: left; padding: 5px}
-.listpre:hover>.show-popup{display: block;}
 
-a.show-popup {
-    display: none;
-    margin:10px 0 0 0;
-    float:left;
-
-}
-div.popup-bg {
+.metaseo_images div.popup-bg {
     position:absolute;
     top:0;
     bottom:0;
@@ -19,14 +12,14 @@ div.popup-bg {
     background:#999;
     display:none;
 }
-div.popup {
+.metaseo_images  div.popup {
     border-radius:2px;
     z-index:999;
     display:none;
     background:#FFF;
     overflow: auto;
 }
-div.popup-header {
+.metaseo_images  div.popup-header {
     position:relative;
     float:left;
     width:1000px;
@@ -34,14 +27,14 @@ div.popup-header {
     background:#FF9933;
 }
 
-.popup-header .pop-title{
+.metaseo_images  .popup-header .pop-title{
     background: #FFF;
     padding: 6px 0px 0px 15px;
     color:#555!important;
     margin:0;
     font-size:16px;
 }
-span.popup-close {
+.metaseo_images  span.popup-close {
     cursor:pointer;
     color: #555;
     font-weight: bold;
@@ -50,16 +43,17 @@ span.popup-close {
     right:10px;
     z-index:9999;
 }
-div.popup-content .content-header{
-	color:#666;margin:0;padding: 10px 10px 12px 14px;background: #fffeee
+.metaseo_images  div.popup-content .content-header{
+    color:#666;margin:0;padding: 10px 10px 12px 14px;background: #fffeee
 }
-div.popup-content .content-box{
+.metaseo_images  div.popup-content .content-box{
     /*width:980px;*/
     min-height:250px;
     overflow: auto;
     padding: 0 10px 10px;
     position: relative;
 }
+
 
 span.spinner-light{
 	background: url("../../../../wp-admin/images/wpspin_light.gif") no-repeat scroll 0 0 / 16px 16px rgba(0, 0, 0, 0);
@@ -297,4 +291,8 @@ span.hz-loading{
 
 #filter-by-flush{
     margin-left: 5px;
+}
+
+.wpms_lang_list{
+    min-width: 200px;
 }
