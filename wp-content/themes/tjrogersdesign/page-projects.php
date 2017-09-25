@@ -61,30 +61,29 @@ Template Name: Projects Page
 
                         </div>  
 
-                        <div class="project-row-sect project-info"> 
-                            <div class="project-title">        
-                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>  
+                        <div class="project-row-sect project-info-wrap"> 
+                            <div class="project-info">
+                                <div class="project-title">        
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>  
+                                </div>
+
+                                <div class="project-category">
+
+                                    <?php  
+                                        $terms = get_the_terms( $post->ID , 'project_categories' );
+                                        $i = 1;
+                                        foreach ( $terms as $term ) {
+                                        echo $term->name;
+                                        echo ($i < count($terms))? ", " : "";
+                                        $i++; 
+                                    } ?>
+
+                                </div>
                             </div>
 
-                            <div class="project-category">
+                        </div><!-- /project-info-wrap -->
 
-                                <?php  
-                                    $terms = get_the_terms( $post->ID , 'project_categories' );
-                                    $i = 1;
-                                    foreach ( $terms as $term ) {
-                                    echo $term->name;
-                                    echo ($i < count($terms))? ", " : "";
-                                    $i++; 
-                                } ?>
-
-                            </div>
-
-                            <div class="project-description">
-                                <?php the_field('project_description'); ?>
-                            </div><!-- /project-desc -->
-
-                            <a class="btn" href="<?php the_permalink(); ?>">View Project</a>
-                        </div><!-- /project-info -->
+                        <a class="project-link" href="<?php the_permalink(); ?>">&nbsp;</a>
                     </div><!-- /view-row -->
 
                 <?php endwhile; endif; wp_reset_postdata(); ?>

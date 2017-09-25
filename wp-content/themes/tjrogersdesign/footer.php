@@ -17,7 +17,6 @@
 			<p>I am a developer/designer who&rsquo;s based out of Orlando, FL. I get to build websites and design user experiences, as well as craft email campaigns and work on small print projects.</p>
 		</div>
 		<div class="footer-sect footer-nav">
-			<p>Site</p>
 			<?php 
 				$defaults = array(
 					'container' => false,
@@ -37,7 +36,7 @@
 
 			<div class="footer-phone">
 				<p class="footer-phone-icn"><img src="/wp-content/themes/tjrogersdesign/images/phone-icn.svg"></p>
-				<p class="footer-phone-text"><span>You can reach me at</span>321-759-5494</p>
+				<p class="footer-phone-text"><span>You can reach me at</span>(321) 345-8120</p>
 			</div><!-- /footer-phone -->	
 		</div><!-- /footer-contact-info -->
 	</div><!-- /footer -->

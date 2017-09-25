@@ -31,7 +31,7 @@ function tjr_theme_styles_scripts() {
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'tjr-main', get_theme_file_uri( '/style.css' ) );
-	wp_enqueue_style( 'tjr-all', get_theme_file_uri( '/css/all.css' ) );
+	wp_enqueue_style( 'tjr-all', get_theme_file_uri( '/scss/all.css' ) );
 
 	if( is_front_page() ){
 		wp_enqueue_style( 'tjr-homepage', get_theme_file_uri( '/css/home.css' ) );

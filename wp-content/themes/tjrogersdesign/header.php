@@ -50,7 +50,7 @@
 
 			<div class="hdr-phone">
 				<p class="hdr-phone-icn"><img src="/wp-content/themes/tjrogersdesign/images/phone-icn.svg"></p>
-				<p class="hdr-phone-text"><span>You can reach me at</span>321-759-5494</p>
+				<p class="hdr-phone-text"><span>You can reach me at</span>321-345-8120</p>
 			</div><!-- /hdr-phone -->	
 		</div><!-- /hdr-contact-info -->
 	</div><!-- /hdr-logo-contact -->
