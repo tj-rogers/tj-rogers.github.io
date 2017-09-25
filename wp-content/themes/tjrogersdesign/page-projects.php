@@ -32,6 +32,8 @@ Template Name: Projects Page
                 <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
 
                     <div class="project-row">    
+                        <?php edit_post_link('Edit'); ?>
+
                         <div class="project-row-sect project-main-image">        
                             <?php    
                                 //Get the images ids from the post_metadata
