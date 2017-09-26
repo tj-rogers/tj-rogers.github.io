@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<?php 
+<?php
 /*
-Template Name: Projects Page 
+Template Name: Projects Page
 */
  ?>
 
@@ -10,7 +10,7 @@ Template Name: Projects Page
     <p>CONTENT TOP</p>
   </div>
 
-<div class="pageWrap">    
+<div class="pageWrap">
     <div class="contentWrap">
         <!-- ContentArea -->
         <div class="content-area">
@@ -18,24 +18,28 @@ Template Name: Projects Page
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 <h1><?php the_title(); ?></h1>
                 <?php the_content(); ?>
-            <?php endwhile; endif; ?>   
+            <?php endwhile; endif; ?>
 
-            <?php 
+            <?php
                 $args = array(
                     'post_type' => 'project'
                 );
                 $query = new WP_Query($args);
-            ?> 
+            ?>
 
             <div class="projects-listing">
 
                 <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
 
-                    <div class="project-row">    
-                        <?php edit_post_link('Edit'); ?>
+                    <div class="project-row">
+                        <?php edit_post_link('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'); ?>
 
-                        <div class="project-row-sect project-main-image">        
-                            <?php    
+                        <div class="project-row-sect project-main-image">
+                          <div class="project-row-sect project-main-image">
+                              <?php // the_post_thumbnail(array(800,600)); ?>
+                          </div>
+
+                            <?php
                                 //Get the images ids from the post_metadata
                                 $images = acf_photo_gallery('project_images', $post->ID);
                                     //Check if return array has anything in it
@@ -54,30 +58,30 @@ Template Name: Projects Page
                                             $alt = get_field('project_images_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
                                             $class = get_field('project_images_class', $id); //Get the class which is a extra field (See below how to add extra fields)
                             ?>
- 
+
                                 <a href="<?php the_permalink(); ?>" <?php echo ($target == 'true' )? 'target="_blank"': ''; ?>>
                                     <img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
                                 </a>
 
-                            <?php endforeach; endif; ?>    
+                            <?php endforeach; endif; ?>
 
-                        </div>  
+                        </div>
 
-                        <div class="project-row-sect project-info-wrap"> 
+                        <div class="project-row-sect project-info-wrap">
                             <div class="project-info">
-                                <div class="project-title">        
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>  
+                                <div class="project-title">
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                 </div>
 
                                 <div class="project-category">
 
-                                    <?php  
+                                    <?php
                                         $terms = get_the_terms( $post->ID , 'project_categories' );
                                         $i = 1;
                                         foreach ( $terms as $term ) {
                                         echo $term->name;
                                         echo ($i < count($terms))? ", " : "";
-                                        $i++; 
+                                        $i++;
                                     } ?>
 
                                 </div>
