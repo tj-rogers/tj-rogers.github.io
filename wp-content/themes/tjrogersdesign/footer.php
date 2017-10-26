@@ -2,12 +2,12 @@
 
 	<div class="content-bottom-wrap">
 		<div class="content-bottom">
-		<p>Content Bottom</p>
+		<?php dynamic_sidebar( 'content-bottom' ); ?>
 		</div>
 	</div>
 
 <div class="prefooter">  
-	<p>Prefooter</p>
+	<?php dynamic_sidebar( 'prefooter' ); ?>
 </div>
     
 <div class="footer-wrap">

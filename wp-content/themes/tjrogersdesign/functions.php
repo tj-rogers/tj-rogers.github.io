@@ -72,6 +72,26 @@ function create_widget($name, $id, $description) {
         'before_title' => '<h2>',
         'after_title' => '</h2>'
     ));
+
+    register_sidebar(array(
+        'name' => esc_html__( 'Content Bottom' ),    
+        'id' => 'content-bottom',
+        'description' => esc_html__( 'Full Width Content above Prefooter.' ),
+        'before_widget' => '<div class="widget content-bottom">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+    ));
+
+    register_sidebar(array(
+        'name' => esc_html__( 'Prefooter' ),    
+        'id' => 'prefooter',
+        'description' => esc_html__( 'Prefooter Content.' ),
+        'before_widget' => '<div class="widget content-bottom">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+    ));
  
 }
 // Create the actual widgets (ID is a unique string)
