@@ -103,37 +103,37 @@
   margin: 2em 1em 0;
   overflow: hidden;
   box-shadow: 1px 0 3px #ccc;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   background: #fff; }
 
 .projectListing .views-row:hover {
-  transform: scale(1.125);
+  -webkit-transform: scale(1.125);
+          transform: scale(1.125);
   background: #414141; }
 
 @media (max-width: 1780px) {
   .projectListing .views-row {
     width: 22%; } }
-
 @media (max-width: 1300px) {
   .projectListing .views-row {
     width: 30%;
     margin: 1em 0.5em 0; } }
-
 @media (max-width: 960px) {
   .projectListing .views-row {
     vertical-align: top;
     position: relative;
     width: 47%; }
+
   .projectListing .views-row-last {
     display: none; } }
-
 @media (max-width: 650px) {
   .projectListing .views-row {
     width: 80%;
     margin: 2em 0 0; }
+
   .projectListing .views-row-last {
     display: inline-block; } }
-
 .projectListing .views-field-field-project-category {
   font-size: 0.8em;
   color: #888;
@@ -176,15 +176,12 @@
   opacity: 1;
   z-index: 5;
   background: rgba(0, 0, 0, 0.65);
-  background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.75) 70%, rgba(0, 0, 0, 0.75) 100%);
   /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(70%, rgba(0, 0, 0, 0.75)), color-stop(100%, rgba(0, 0, 0, 0.75)));
   /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.75) 70%, rgba(0, 0, 0, 0.75) 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.75) 70%, rgba(0, 0, 0, 0.75) 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.75) 70%, rgba(0, 0, 0, 0.75) 100%);
   /* IE10+ */
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.75) 70%, rgba(0, 0, 0, 0.75) 100%);
   /* W3C */
@@ -208,8 +205,10 @@
   left: 5%;
   border: 1px solid #fff;
   opacity: 0;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   z-index: 3;
   pointer-events: none; }
 
@@ -222,15 +221,18 @@
   left: 0;
   background: rgba(255, 255, 255, 0.35);
   opacity: 0;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   z-index: 1;
   pointer-events: none; }
 
 .projectListing .views-row:hover:before,
 .projectListing .views-row:hover:after {
   opacity: 0;
-  transform: scale(2); }
+  -webkit-transform: scale(2);
+          transform: scale(2); }
 
 .projectListing .views-field-title a {
   position: relative;
@@ -306,6 +308,7 @@ p.likeWork {
   margin-top: -0.5em;
   right: -1em;
   opacity: 0;
+  -webkit-transition: 0.2s;
   transition: 0.2s; }
 
 .seeMore:hover i {
@@ -338,12 +341,10 @@ p.likeWork {
 @media (max-width: 940px) {
   .contentBottom .hpCallout {
     padding: 3em 3%; } }
-
 @media (max-width: 830px) {
   .contentBottom .hpCallout {
     display: block;
     width: 94%; } }
-
 .contentBottom .hpCallout:before {
   position: absolute;
   top: 0;
@@ -382,6 +383,7 @@ p.likeWork {
 .contentBottom .coReel {
   background: #2C2C2C url(/sites/all/themes/tjr/global-images/bkd-reel.jpg) 50% 50% no-repeat;
   background-size: 180%;
+  -webkit-transition: 2s;
   transition: 2s; }
 
 .contentBottom .coReel:hover {
@@ -391,6 +393,7 @@ p.likeWork {
 .contentBottom .hpBlog {
   background: #2C2C2C url(/sites/all/themes/tjr/global-images/co-bkd-blog.jpg) 50% 50% no-repeat;
   background-size: 180%;
+  -webkit-transition: 2s;
   transition: 2s; }
 
 .contentBottom .hpBlog:hover {
@@ -408,6 +411,7 @@ p.likeWork {
   display: none; }
 
 .hpCallout a {
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   border-color: #fff; }
 
@@ -460,6 +464,7 @@ p.likeWork {
   margin-top: -0.5em;
   right: -1em;
   opacity: 0;
+  -webkit-transition: 0.2s;
   transition: 0.2s; }
 
 .hpCallout .btn:hover i,
@@ -477,7 +482,6 @@ p.likeWork {
 @media (max-width: 660px) {
   .clientListing {
     padding: 3em 0 3em; } }
-
 .clientListing h2 {
   color: #373c40;
   margin-bottom: 2em; }
@@ -498,11 +502,12 @@ p.likeWork {
   .clientListing .views-row {
     width: 30%;
     margin-top: 2em; } }
-
 .clientListing .views-row img {
   opacity: 0.4;
   max-width: 100% !important;
-  transform: scale(0.96);
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+  -webkit-transition: 0.2s;
   transition: 0.2s; }
 
 /*

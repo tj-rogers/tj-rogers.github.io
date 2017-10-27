@@ -106,11 +106,12 @@
 @media (max-width: 620px) {
   .not-front .header {
     padding-top: 1em; }
+
   .not-front .myName {
     font-size: 2.25rem; }
+
   .not-front .myTag {
     font-size: 1.5rem; } }
-
 #block-block-4 {
   margin-left: -820px; }
 
@@ -147,11 +148,12 @@
   .page-node-6 .contentArea.hasSidebar,
   .page-node-6 .sidebarArea {
     width: 100%; }
+
   .page-node-6 .contentArea.hasSidebar {
     margin-right: 0; }
+
   .page-node-6 .sidebarArea {
     margin: 3em 0 0 0; } }
-
 /* ----- Contact Form ----- */
 #block-webform-client-block-12 {
   font-family: "effra";
@@ -220,7 +222,6 @@
   #webform-client-form-12 #webform-component-name input,
   #webform-client-form-12 #webform-component-phone input {
     width: 89%; } }
-
 #webform-client-form-12 textarea {
   width: 100%; }
 
@@ -333,7 +334,6 @@
 @media (max-width: 900px) {
   .aboutBio .content {
     padding-bottom: 0; } }
-
 .page-node-2 #page-title {
   text-align: left; }
 
@@ -350,7 +350,6 @@
   .aboutBio .aboutBioStory {
     width: 100%;
     margin-bottom: 2em; } }
-
 .aboutBio img.fltRight {
   position: absolute;
   bottom: -6.25em;
@@ -366,11 +365,11 @@
     font-size: 0;
     line-height: 0;
     text-align: center; }
+
   .aboutBio img.fltRight {
     position: static;
     float: none;
     margin: 0; } }
-
 /* ----------------------------------------------- Code & RWD --- */
 .page-node-2 .contentBottom p {
   font-family: "effra";
@@ -382,7 +381,6 @@
 @media (max-width: 680px) {
   .toolsTrade {
     padding: 4em 2em 1em; } }
-
 .toolsTrade span,
 .toolsTrade p {
   font-weight: 100 !important; }
@@ -463,23 +461,25 @@
   .toolsResponsive,
   .toolsCodeWriting {
     padding: 6em 5em 5em; }
+
   .toolsResponsive {
     padding-bottom: 1em; }
+
   .toolsImg,
   .toolsDesc {
     width: 100%; }
+
   .toolsResponsive .toolsImg,
   .toolsCodeWriting .toolsImg {
     margin-top: 3em;
     text-align: center; } }
-
 @media (max-width: 680px) {
   .toolsResponsive,
   .toolsCodeWriting {
     padding: 2.5em 2em 3.5em; }
+
   .toolsResponsive {
     padding-bottom: 0; } }
-
 /* ----------------------------------------------- DRUPAL SECTION --- */
 .toolsDrupal .toolsDesc,
 .toolsDrupal .toolsImg {
@@ -496,7 +496,6 @@
 @media (max-width: 1050px) {
   .toolsDrupal .toolsDesc p {
     width: 100%; } }
-
 .toolsDrupal .toolsImg {
   margin-bottom: 1em; }
 
@@ -521,21 +520,19 @@
 @media (max-width: 1050px) {
   .toolsPro {
     width: 45%; } }
-
 @media (max-width: 880px) {
   .toolsPro {
     width: 40%;
     text-align: left;
     padding: 0 30%; }
+
   .scalability {
     margin-top: 2em; } }
-
 @media (max-width: 790px) {
   .toolsPro {
     width: 50%;
     text-align: left;
     padding: 0 25%; } }
-
 .toolsPro p,
 .toolsPro h3 {
   display: inline-block;
@@ -556,13 +553,14 @@
     width: 100%;
     text-align: center;
     padding: 0; }
+
   .toolsPro p,
   .toolsPro h3 {
     display: block;
     text-align: center; }
+
   .toolsPro i {
     display: none; } }
-
 .toolsPro span {
   display: block;
   margin-bottom: 0.25em;
@@ -645,9 +643,9 @@
   .learnIntro,
   .learnIcon {
     width: 100%; }
+
   .learnIntro {
     margin-bottom: 2em; } }
-
 #block-views-resources-listings-block {
   margin-top: 3em;
   background: #fff;
@@ -728,12 +726,15 @@
     margin-top: 2em;
     box-shadow: none;
     padding-bottom: 3em; }
+
   #block-views-resources-listings-block .views-row {
     padding: 0;
     background: #fff;
     box-shadow: 1px 0 5px #ccc; }
+
   #block-views-resources-listings-block .views-row + .views-row {
     margin-top: 1.5em; }
+
   #block-views-resources-listings-block .views-field-field-resource-image,
   #block-views-resources-listings-block .views-field-field-resource-description {
     display: inline-block;
@@ -741,26 +742,29 @@
     padding: 0;
     vertical-align: top;
     margin: 1em; }
+
   #block-views-resources-listings-block .views-field-field-resource-image {
     width: 35%; }
+
   #block-views-resources-listings-block .views-field-field-resource-description {
     width: 55%;
     margin-left: 0; }
+
   #block-views-resources-listings-block .views-field-field-resource-description .field-content {
     padding: 0; } }
-
 @media (max-width: 690px) {
   #block-views-resources-listings-block .views-field-field-resource-image,
   #block-views-resources-listings-block .views-field-field-resource-description {
     display: block;
     margin: 0; }
+
   #block-views-resources-listings-block .views-field-field-resource-image {
     width: 100%;
     max-height: 230px; }
+
   #block-views-resources-listings-block .views-field-field-resource-description {
     width: 90%;
     padding: 1em 5%; } }
-
 #block-views-resources-listings-block .views-field-field-resource-image .field-content {
   line-height: 0; }
 
@@ -1451,9 +1455,9 @@ span.statement-sect-2 {
   .sidebarArea {
     display: block;
     width: 100%; }
+
   .sidebarArea {
     margin: 3em 0 0 0; } }
-
 .front #page-title {
   display: none; }
 
