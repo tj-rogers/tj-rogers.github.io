@@ -7,31 +7,41 @@
 <div class="pageWrap">    
     <div class="contentWrap">
         <!-- ContentArea -->
-        <div class="content-area has-sidebar">
+        <div class="content-area">
+            <h1><?php echo get_the_title( get_option('page_for_posts', true) ); ?></h1>
+
+            <div class="post-listing">
             
+                <?php if ( have_posts() ) : while (have_posts() ) : the_post(); ?>
+            
+                <div class="post-item">
+                    
+                    <?php edit_post_link( '<i class="fa fa-pencil"></i>', '<p>', '</p>', '', 'btn btn-sm blog-listing-edit' ); ?>
+                    
+                    <a href="<?php the_permalink(); ?>" class="blog-listing-teaser-image" style="background-image: url(<?php echo get_field( 'blog_header_image' )['url']; ?>);"></a>
+                    
+                    <h2 class="blog-listing-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-                <h2>MAIN CONTENT</h2>
-
-                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-                <?php endwhile; else: ?>    
-                    <p><?php _e( 'Sorry, no content found' ); ?></p>
-                <?php endif; ?>
+                    <p class="blog-listing-meta">Written on <?php the_time('F j, Y'); ?></p>
+                    
+                    <?php the_excerpt(); ?>
+                    
+                    <p class="blog-article-more">
+                        <a class="btn" href="<?php the_permalink(); ?>">Read Full Article</a>
+                    </p>
+                    
+                </div>
+                
+                <?php endwhile; endif; ?>
+                
+            </div>
 
         </div><!-- /contentArea -->
 
         <!-- Right Sidebar Section -->
         <div class="sidebar-area">
-            <?php the_content(); ?>
-
-                <h2>SIDEBAR</h2>
-
-                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-                <?php endwhile; else: ?>    
-                    <p><?php _e( 'Sorry, no content found' ); ?></p>
-                <?php endif; ?>
-
+            <p>SIDEBAR</p>
+            <?php dynamic_sidebar( 'sidebar' ); ?>
         </div><!-- /sidebar-area -->
 
     </div><!-- /contentWrap -->

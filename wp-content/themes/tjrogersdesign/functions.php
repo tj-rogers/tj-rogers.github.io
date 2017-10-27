@@ -84,6 +84,16 @@ function create_widget($name, $id, $description) {
     ));
 
     register_sidebar(array(
+        'name' => esc_html__( 'Sidebar' ),    
+        'id' => 'sidebar',
+        'description' => esc_html__( 'Sidebar Area.' ),
+        'before_widget' => '<div class="widget sidebar-area">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+    ));
+
+    register_sidebar(array(
         'name' => esc_html__( 'Prefooter' ),    
         'id' => 'prefooter',
         'description' => esc_html__( 'Prefooter Content.' ),

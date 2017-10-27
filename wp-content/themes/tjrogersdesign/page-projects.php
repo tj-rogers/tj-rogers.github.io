@@ -6,19 +6,10 @@ Template Name: Projects Page
 */
  ?>
 
-  <div class="contentTopWrap">
-    <p>CONTENT TOP</p>
-  </div>
-
 <div class="pageWrap">
     <div class="contentWrap">
         <!-- ContentArea -->
         <div class="content-area">
-
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <h1><?php the_title(); ?></h1>
-                <?php the_content(); ?>
-            <?php endwhile; endif; ?>
 
             <?php
                 $args = array(

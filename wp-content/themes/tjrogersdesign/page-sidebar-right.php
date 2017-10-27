@@ -14,30 +14,21 @@ Template Name: Right Sidebar
     <div class="contentWrap">
         <!-- ContentArea -->
         <div class="content-area">
-            <?php the_content(); ?>
+            <?php the_title( '<h1>', '</h1>' ); ?>
 
-                <h2>MAIN CONTENT</h2>
+            <?php the_content(); ?>               
 
-                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-                <?php endwhile; else: ?>    
-                    <p><?php _e( 'Sorry, no content found' ); ?></p>
-                <?php endif; ?>
+            <?php endwhile; else: ?>    
+                <p><?php _e( 'Sorry, no content found' ); ?></p>
+            <?php endif; ?>
 
         </div><!-- /contentArea -->
 
         <!-- Right Sidebar Section -->
         <div class="sidebar-area">
-            <?php the_content(); ?>
-
-                <h2>SIDEBAR</h2>
-
-                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-                <?php endwhile; else: ?>    
-                    <p><?php _e( 'Sorry, no content found' ); ?></p>
-                <?php endif; ?>
-
+            <?php dynamic_sidebar( 'sidebar' ); ?>
         </div><!-- /sidebar-area -->
 
     </div><!-- /contentWrap -->
