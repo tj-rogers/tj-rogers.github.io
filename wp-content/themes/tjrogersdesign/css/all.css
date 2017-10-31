@@ -853,7 +853,8 @@
   box-shadow: 0 0 5px #ccc;
   background: #f7f7f7 !important; }
 
-/* ---------------------------------------------  -- */
+/* --------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------- CONTACT PG -- */
 .contact-social-card {
   box-shadow: 1px 1px 15px #ccc;
   padding: 1em;
@@ -1199,6 +1200,145 @@ body.page-template-page-projects {
   text-shadow: 1px 1px 2px #000; }
 
 /* CSS Document */
+/* ----------------------------------------------- LANDING PG --- */
+.post-listing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.post-listing .post-item {
+  margin: 0 1.5% 1em;
+  width: 45%;
+  background: #fff;
+  box-shadow: 0 2px 20px #ccc;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  position: relative; }
+
+.btn.blog-listing-edit {
+  position: absolute;
+  border-radius: 0;
+  padding: 0.75em 1.25em; }
+
+/*
+.blogListing .views-row:hover {
+box-shadow: 0 10px 30px #333;
+transform: scale(1.05);
+background: #414141;
+color: #fff;
+}
+*/
+@media (max-width: 780px) {
+  .blogListing .views-row {
+    margin: 0 0 1em;
+    width: 49%; }
+
+  .blogListing .views-row-first {
+    width: 100%; }
+
+  .blogListing .views-row-even {
+    margin-right: 1.25%; } }
+@media (max-width: 520px) {
+  .blogListing .views-row,
+  .blogListing .views-row-even {
+    margin: 0 0 1em;
+    width: 100%; } }
+.blogListing h2 {
+  font-size: 1.25em;
+  font-weight: 700;
+  padding: 0 0.7em; }
+
+.blogListing .views-row h2 a {
+  color: #e1cd83; }
+
+.blogListing .views-row h2 a:hover {
+  color: #666; }
+
+.blogListing .views-field-field-article-categories {
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+  padding: 1em;
+  display: table; }
+
+.blogListing .views-field-field-article-categories .field-content {
+  display: table-cell;
+  vertical-align: middle; }
+
+.blogListing .views-field-field-article-header-image {
+  font-size: 0;
+  overflow: hidden; }
+
+.blogListing .views-field-field-article-header-image img {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%; }
+
+.blogListing .views-field-field-article-header-image:hover img {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+  -webkit-transform: scale(1.25);
+  transform: scale(1.25); }
+
+.blogListing .views-field-created-3 {
+  font-size: 0.9rem;
+  margin: 2em 1em 0 !important;
+  color: #aaa;
+  font-weight: normal; }
+
+.articleText {
+  font-size: 0.9em;
+  padding: 0 1em 2em;
+  border-bottom: 1px solid #eee; }
+
+.blogListing .views-field-view-node a {
+  display: block;
+  padding: 1em;
+  font-family: "museo-slab";
+  font-size: 0.9em;
+  -webkit-transition: 0.3s;
+  transition: 0.3s; }
+
+.blogListing .views-row:hover .views-field-view-node a {
+  color: #15b9de; }
+
+.blogListing .views-field-view-node a:hover,
+.blogListing .views-row:hover .views-field-view-node a:hover {
+  color: #e1cd83;
+  background: #414141; }
+
+/* --------------------------------------------- SIDEBAR -- */
+.blogCategories .views-row + .views-row {
+  border-top: 1px solid #ccc; }
+
+.blogCategories .views-row a {
+  display: block;
+  padding: 0.5em;
+  -webkit-transition: 0.2s;
+  transition: 0.2s; }
+
+.blogCategories .views-row a:hover {
+  background: #414141;
+  color: #e1cd83;
+  font-weight: 500;
+  border-left: 0.5em solid #067ba5;
+  border-left: 0.5em solid #e1cd83; }
+
 /* CSS Document */
 /* ----- GOOGLE FONT FAMILIES ----- */
 /*
