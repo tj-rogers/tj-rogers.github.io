@@ -83,17 +83,13 @@ margin: 3em 0 0 0;
 }
 
 /* ----- Contact Form ----- */
-#block-webform-client-block-12 {
+.nf-form-cont {
 font-family:"effra";
-padding-top: 0.5em;
 }
 
-#webform-client-form-12 .webform-component {
-display: inline-block;
-vertical-align: top;
+.nf-form-cont .nf-field-element {
 position: relative;
 margin: 0 0 2em;
-width: 100%;
 transition: 0.3s;
 }
 
@@ -128,7 +124,7 @@ font-size: 1.25em;
 font-weight: bold;
 }
 
-#webform-client-form-12 .webform-component input,
+.nf-form-cont .nf-field-element input,
 #webform-client-form-12 .webform-component textarea {
 //background: rgba(255,255,255, 0.4) !important;
 box-shadow: 1px 2px 5px #ccc;
@@ -140,13 +136,13 @@ background: #fff !important;
 box-shadow: 3px 3px 35px #888;
 }
 
-#webform-client-form-12 .webform-component-textfield input,
+.nf-form-cont .nf-field-element input,
 #webform-client-form-12 .webform-component-email input,
 #webform-client-form-12 textarea,
 #webform-client-form-12 .webform-component-textfield input,
 #webform-client-form-12 .webform-component-email input,
 #webform-client-form-12 textarea {
-padding: 20px 0 20px 13%;
+padding: 20px 0 20px 18%;
 width: 87%;
 border: none;
 background: none;
@@ -167,7 +163,7 @@ width: 89%;
 width: 100%;
 }
 
-#webform-client-form-12 .webform-component:before {
+.nf-form-cont .textbox-container .nf-field-element:before {
 position: absolute;
 top: 0;
 bottom: 0;
@@ -179,7 +175,7 @@ font-family: FontAwesome;
 z-index: 5;
 }
 
-#webform-client-form-12 #webform-component-name:before {
+.nf-form-cont .textbox-container .nf-field-element:before {
 content: "\f007"; 
 }
 
@@ -973,3 +969,47 @@ margin-top: 100px;
 box-shadow: 0 0 5px #ccc;
 background: #f7f7f7 !important;
 }
+
+
+
+
+
+/* ---------------------------------------------  -- */
+.contact-social-card {
+	box-shadow: 1px 1px 15px #ccc;
+	padding: 1em;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+
+	.contact-sc-icon,
+	.contact-sc-text {
+		// width: 50%;
+	}
+
+	.contact-sc-icon {
+		padding-right: 1em;
+	}
+
+	i {
+		font-size: 2em;
+	}
+}
+
+.contact-social-card + .contact-social-card {
+	margin-top: 1.5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+

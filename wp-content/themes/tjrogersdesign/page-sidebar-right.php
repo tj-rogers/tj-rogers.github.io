@@ -6,32 +6,32 @@ Template Name: Right Sidebar
 */
  ?>
 
-  <div class="contentTopWrap">
-    <p>CONTENT TOP</p>
-  </div>
-
 <div class="pageWrap">    
     <div class="contentWrap">
         <!-- ContentArea -->
-        <div class="content-area">
+        <div class="content-area has-sidebar">
             <?php the_title( '<h1>', '</h1>' ); ?>
 
             <?php the_content(); ?>               
-
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-            <?php endwhile; else: ?>    
-                <p><?php _e( 'Sorry, no content found' ); ?></p>
-            <?php endif; ?>
 
         </div><!-- /contentArea -->
 
         <!-- Right Sidebar Section -->
         <div class="sidebar-area">
-            <?php dynamic_sidebar( 'sidebar' ); ?>
+            <?php dynamic_sidebar( 'right-sidebar' ); ?>
         </div><!-- /sidebar-area -->
 
     </div><!-- /contentWrap -->
 </div><!-- /pageWrap -->
+
+<div class="content-bottom-wrap">
+    <div class="content-bottom">
+        <?php dynamic_sidebar( 'content-bottom' ); ?>
+    </div>
+</div>
+
+<div class="prefooter">  
+    <?php dynamic_sidebar( 'prefooter' ); ?>
+</div>
 
 <?php get_footer(); ?>

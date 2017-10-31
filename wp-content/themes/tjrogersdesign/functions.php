@@ -74,6 +74,16 @@ function create_widget($name, $id, $description) {
     ));
 
     register_sidebar(array(
+        'name' => esc_html__( 'Right Sidebar' ),    
+        'id' => 'right-sidebar',
+        'description' => esc_html__( 'Right Sidebar' ),
+        'before_widget' => '<div class="widget sidebar-right">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+    ));
+
+    register_sidebar(array(
         'name' => esc_html__( 'Content Bottom' ),    
         'id' => 'content-bottom',
         'description' => esc_html__( 'Full Width Content above Prefooter.' ),
@@ -84,20 +94,10 @@ function create_widget($name, $id, $description) {
     ));
 
     register_sidebar(array(
-        'name' => esc_html__( 'Sidebar' ),    
-        'id' => 'sidebar',
-        'description' => esc_html__( 'Sidebar Area.' ),
-        'before_widget' => '<div class="widget sidebar-area">',
-        'after_widget' => '</div>',
-        'before_title' => '<h2>',
-        'after_title' => '</h2>'
-    ));
-
-    register_sidebar(array(
         'name' => esc_html__( 'Prefooter' ),    
         'id' => 'prefooter',
         'description' => esc_html__( 'Prefooter Content.' ),
-        'before_widget' => '<div class="widget content-bottom">',
+        'before_widget' => '<div class="widget prefooter">',
         'after_widget' => '</div>',
         'before_title' => '<h2>',
         'after_title' => '</h2>'

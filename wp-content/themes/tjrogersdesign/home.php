@@ -17,8 +17,10 @@
                 <div class="post-item">
                     
                     <?php edit_post_link( '<i class="fa fa-pencil"></i>', '<p>', '</p>', '', 'btn btn-sm blog-listing-edit' ); ?>
+
+                    <?php the_post_thumbnail(); ?>
                     
-                    <a href="<?php the_permalink(); ?>" class="blog-listing-teaser-image" style="background-image: url(<?php echo get_field( 'blog_header_image' )['url']; ?>);"></a>
+                    <a href="<?php the_permalink(); ?>" class="blog-listing-teaser-image" style="background-image: url(<?php echo get_the_post_thumbnail()['url']; ?>);"></a>
                     
                     <h2 class="blog-listing-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
