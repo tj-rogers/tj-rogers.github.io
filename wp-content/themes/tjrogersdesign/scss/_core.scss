@@ -361,12 +361,12 @@ padding: 1em 0 0;
 }
 
 .content-area.has-sidebar {
-width: 63%;
+width: 60%;
 }
 
 .sidebar-area {
-width: 32%;
-margin-left: 2em;
+width: 30%;
+//margin-left: 2em;
 }
 
 @media (max-width: 980px) {
@@ -404,6 +404,14 @@ font-family:"museo-slab";
 .contentBottomOuter * + p {
 margin-top: 1em;
 }
+
+
+/* ----- CONTENT BOTTOM ----- */
+.content-bottom {
+max-width: 1320px;
+margin: 0 auto;
+}
+
 
 
 /* ---------- FOOTER ---------- */

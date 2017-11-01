@@ -1,25 +1,25 @@
 <?php get_header(); ?>
 
-  <div class="contentTopWrap">
-    <p>CONTENT TOP</p>
-  </div>
-
 <div class="pageWrap">    
     <div class="contentWrap">
-        <div class="contentArea">
+        <div class="content-area">
             <?php the_title( '<h1>', '</h1>' ); ?>
             
             <?php the_content(); ?>
-
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-            <?php endwhile; else: ?>    
-                <p><?php _e( 'Sorry, no content found' ); ?></p>
-            <?php endif; ?>
 
         </div><!-- /contentArea -->
 
     </div><!-- /contentWrap -->
 </div><!-- /pageWrap -->
+
+<div class="content-bottom-wrap">
+    <div class="content-bottom">
+        <?php dynamic_sidebar( 'content-bottom' ); ?>
+    </div>
+</div>
+
+<div class="prefooter">  
+    <?php dynamic_sidebar( 'prefooter' ); ?>
+</div>
 
 <?php get_footer(); ?>

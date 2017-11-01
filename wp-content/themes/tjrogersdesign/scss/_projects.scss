@@ -26,17 +26,31 @@ align-items: stretch;
 	margin: 1em 1% 0.5em;
 	overflow: hidden;
 	box-shadow: 0 0 20px 1px #aaa;
-	background: #2ec1d4;
+
+	.project-top-border {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 10px;
+		z-index: 2;
+		background: $blue;
+		background: $gold;
+		transform: translateY(-150%);
+		transition: 0.4s;
+	}
 
 	&:hover {
 
-		.project-info-wrap {
+		.project-info-wrap,
+		.project-top-border {
 			transform: translateY(0%);
 		}
 
-		.project-main-image a img {
-			transform: translateY(-4.5em);
+		.project-main-image img {
+			transform: translateY(-6.5em);
 		}
+
 	}
 
 	.post-edit-link {
@@ -57,17 +71,17 @@ align-items: stretch;
 		width: 100%;
 		height: auto;
 		transform: translateY(150%);
-		transition: 0.2s;
+		transition: 0.3s;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
 		justify-content: flex-start;
 		align-items: flex-start;
-		background: #2ec1d4;
+		background: #fff;
 
 		.project-info {
-			padding: 1em 1.25em;
-			color: #fff;
+			padding: 1.5em 1.25em;
+			//color: #fff;
 		}
 
 		&:before {
@@ -78,9 +92,9 @@ align-items: stretch;
 			width: 0;
 			height: 0;
 			border-top: 100vh solid transparent;
-  			border-right: 100vw solid #2ec1d4;
+  			border-right: 100vw solid #fff;
   			border-left: 100vw solid transparent;
-  			border-bottom: 15vh solid #2ec1d4;
+  			border-bottom: 15vh solid #fff;
   		}
 	}
 
@@ -97,15 +111,14 @@ align-items: stretch;
 	line-height: 0;
 }
 
-.project-main-image a img {
+.project-main-image img {
 	width: 100%;
-	transition: 0.2s;
+	transition: 0.75s;
 }
 
-.project-title a {
-	font-size: 1.5em;
+.project-title {
+	font-size: 1.35em;
 	font-weight: 700;
-	color: #fff;
 }
 
 .project-category {
@@ -113,49 +126,17 @@ align-items: stretch;
 	font-family: 'Lora';
 }
 
+.project-view {
+	text-align: center;
+	background: $blue;
+	background: $gold;
+	color: #fff;
+	width: 100%;
+	padding: 1em;
 
-.seeMore {
-text-align: center;
-position: relative;
-display: inline-block;
-border: 4px solid #414141;
-color: #414141;
-font-size: 1rem;
-padding: 1em 3em;
-transition: .2s;
--moz-transition: .2s;
--webkit-transition: .2s;
-overflow: hidden;
-font-family:"museo-slab";
-}
-
-.seeMore:hover {
-background: #A53030;
-background: #414141;
-color: #8eb3c3;
-color: #f7f7f7;
-color: #e1cd83;
-padding: 1em 4em 1em 2em;
-}
-
-.seeMore i {
-font-size: 1.25em;
-position: absolute;
-top: 50%;
-margin-top: -0.5em;
-right: -1em;
-opacity: 0;
-transition: 0.2s;
-}
-
-.seeMore:hover i {
-opacity: 1;
-right: 1.25em;
-color: #e1cd83;
-}
-
-.front .pageWrap {
-display: none;
+	i {
+		margin-left: 0.75em;
+	}
 }
 
 

@@ -24,44 +24,17 @@ Template Name: Projects Page
 
                     <div class="project-row">
                         <?php edit_post_link('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'); ?>
+                        
+                        <p class="project-top-border">&nbsp;</p>
 
                         <div class="project-row-sect project-main-image">
-                          <div class="project-row-sect project-main-image">
-                              <?php // the_post_thumbnail(array(800,600)); ?>
-                          </div>
-
-                            <?php
-                                //Get the images ids from the post_metadata
-                                $images = acf_photo_gallery('project_images', $post->ID);
-                                    //Check if return array has anything in it
-                                    $i = 1;
-                                    if( count($images) ):
-                                        //Cool, we got some data so now let's loop over it
-                                        foreach($images as $image):
-                                            $id = $image['id']; // The attachment id of the media
-                                            $title = $image['title']; //The title
-                                            $caption= $image['caption']; //The caption
-                                            $full_image_url= $image['full_image_url']; //Full size image url
-                                            $full_image_url = acf_photo_gallery_resize_image($full_image_url, 500, 560); //Resized size to 262px width by 160px height image url
-                                            $thumbnail_image_url= $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
-                                            $url= $image['url']; //Goto any link when clicked
-                                            $target= $image['target']; //Open normal or new tab
-                                            $alt = get_field('project_images_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
-                                            $class = get_field('project_images_class', $id); //Get the class which is a extra field (See below how to add extra fields)
-                            ?>
-
-                                <a href="<?php the_permalink(); ?>" <?php echo ($target == 'true' )? 'target="_blank"': ''; ?>>
-                                    <img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
-                                </a>
-
-                            <?php endforeach; endif; ?>
-
+                            <?php the_post_thumbnail('projImgCrop'); ?>
                         </div>
 
                         <div class="project-row-sect project-info-wrap">
                             <div class="project-info">
                                 <div class="project-title">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                    <?php the_title(); ?>
                                 </div>
 
                                 <div class="project-category">
@@ -77,6 +50,8 @@ Template Name: Projects Page
 
                                 </div>
                             </div>
+
+                            <p class="project-view">View Project Details <i class="fa fa-caret-right" aria-hidden="true">&nbsp;</i></p>
 
                         </div><!-- /project-info-wrap -->
 

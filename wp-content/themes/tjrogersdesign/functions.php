@@ -4,6 +4,9 @@
 */
 add_theme_support('menus');
 add_theme_support('post_thumbnails');
+add_image_size('projImgCrop', 450, 540, true);
+add_image_size('blogFeatImgCrop', 400, 200, true);
+
 
 function register_theme_menus() {
 	register_nav_menus(

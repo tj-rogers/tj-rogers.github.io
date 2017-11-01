@@ -15,22 +15,23 @@
                 <?php if ( have_posts() ) : while (have_posts() ) : the_post(); ?>
             
                 <div class="post-item">
-                    
+
                     <?php edit_post_link( '<i class="fa fa-pencil"></i>', '<p>', '</p>', '', 'btn btn-sm blog-listing-edit' ); ?>
 
-                    <?php the_post_thumbnail(); ?>
+                    <p class="post-listing-thumb"><?php the_post_thumbnail('blogFeatImgCrop'); ?></p>
                     
-                    <a href="<?php the_permalink(); ?>" class="blog-listing-teaser-image" style="background-image: url(<?php echo get_the_post_thumbnail()['url']; ?>);"></a>
-                    
-                    <h2 class="blog-listing-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <div class="post-item-content">
+                        <h2 class="blog-listing-title"><?php the_title(); ?></h2>
 
-                    <p class="blog-listing-meta">Written on <?php the_time('F j, Y'); ?></p>
-                    
-                    <?php the_excerpt(); ?>
-                    
-                    <p class="blog-article-more">
-                        <a class="btn" href="<?php the_permalink(); ?>">Read Full Article</a>
-                    </p>
+                        <p class="blog-listing-meta">Written on <?php the_time('F j, Y'); ?></p>
+                        
+                        <div class="post-item-article-text">
+                            <?php the_excerpt(); ?>
+                        </div>
+                        
+                        <p class="blog-article-more">Read Full Article</p>
+                        <a class="post-item-link" href="<?php the_permalink(); ?>">&nbsp;</a>
+                    </div>
                     
                 </div>
                 

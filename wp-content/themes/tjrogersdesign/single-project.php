@@ -10,7 +10,7 @@
         
         
         <!-- ContentArea -->
-        <div class="content-area">
+        <div class="content-area has-sidebar">
             <div class="project-main-image">        
                 <?php    
                     //Get the images ids from the post_metadata
