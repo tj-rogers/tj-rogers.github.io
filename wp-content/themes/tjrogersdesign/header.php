@@ -22,7 +22,7 @@
 
 <div class="tagline-social-wrap">
 	<div class="tagline-social">
-		<p class="tagline">Web Design &bull; Web Development &bull; Brand Enhancement.</p>
+		<p class="tagline">Web Design &bull; Web Development &bull; Brand Enhancement</p>
 
 		<div class="social">
 			<a href="https://www.behance.net/tjrogers82" class="socialBehance"><i class="fa fa-behance">&nbsp;</i></a>
@@ -40,7 +40,7 @@
 
 <div class="hdr-logo-contact-wrap">
 	<div class="hdr-logo-contact">
-		<p class="logo-name"><a href="<?php bloginfo('url'); ?>" class="site-logo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo-blk.png" /></a><span class="site-logo-company">TJ Rogers Design<span class="site-logo-company-tag">Web Deigner &amp; Developer</span></span></p>
+		<p class="logo-name"><a href="<?php bloginfo('url'); ?>" class="site-logo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo-blk.png" /></a><span class="site-logo-company">TJ Rogers Design<span class="site-logo-company-tag">Web Design &amp; Development</span></span></p>
 		
 		<div class="hdr-contact-info">
 			<div class="hdr-loc">
@@ -74,7 +74,37 @@
 <div class="header-wrap-outer">
 	<div class="header-wrap">
 		<div class="feature-area">
+			<?php 
+				if(is_home()){ ?>
+					<h1><?php echo get_the_title( get_option('page_for_posts', true) ); ?></h1>
+				<?php }
+			 ?>
 			<?php dynamic_sidebar( 'feature-area' ); ?>
 		</div><!-- /feature-area -->
 	</div><!-- /header-wrap -->
 </div><!-- /header-wrap-outer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

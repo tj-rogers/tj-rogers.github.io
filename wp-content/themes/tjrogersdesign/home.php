@@ -1,14 +1,9 @@
 <?php get_header(); ?>
 
-  <div class="contentTopWrap">
-    <p>CONTENT TOP</p>
-  </div>
-
 <div class="pageWrap">    
     <div class="contentWrap">
         <!-- ContentArea -->
-        <div class="content-area">
-            <h1><?php echo get_the_title( get_option('page_for_posts', true) ); ?></h1>
+        <div class="content-area has-sidebar">
 
             <div class="post-listing">
             
@@ -16,9 +11,9 @@
             
                 <div class="post-item">
 
-                    <?php edit_post_link( '<i class="fa fa-pencil"></i>', '<p>', '</p>', '', 'btn btn-sm blog-listing-edit' ); ?>
+                    <?php edit_post_link( '<i class="fa fa-pencil-square-o"></i>', '<p>', '</p>', '', 'btn btn-sm blog-listing-edit' ); ?>
 
-                    <p class="post-listing-thumb"><?php the_post_thumbnail('blogFeatImgCrop'); ?></p>
+                    <p class="post-listing-thumb"><?php // the_post_thumbnail('blogFeatImgCrop'); ?></p>
                     
                     <div class="post-item-content">
                         <h2 class="blog-listing-title"><?php the_title(); ?></h2>
@@ -41,13 +36,21 @@
 
         </div><!-- /contentArea -->
 
-        <!-- Right Sidebar Section -->
         <div class="sidebar-area">
-            <p>SIDEBAR</p>
-            <?php dynamic_sidebar( 'sidebar' ); ?>
+            <?php dynamic_sidebar( 'right-sidebar' ); ?>
         </div><!-- /sidebar-area -->
 
     </div><!-- /contentWrap -->
 </div><!-- /pageWrap -->
+
+<div class="content-bottom-wrap">
+    <div class="content-bottom">
+        <?php dynamic_sidebar( 'content-bottom' ); ?>
+    </div>
+</div>
+
+<div class="prefooter">  
+    <?php dynamic_sidebar( 'prefooter' ); ?>
+</div>
 
 <?php get_footer(); ?>

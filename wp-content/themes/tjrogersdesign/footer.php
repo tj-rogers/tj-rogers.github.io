@@ -3,7 +3,7 @@
 <div class="footer-wrap">
 	<div class="footer">
 		<div class="footer-sect footer-about">
-			<p class="logo-name"><a href="<?php bloginfo('url'); ?>" class="site-logo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo.png" /></a><span class="site-logo-company">TJ Rogers Design<span class="site-logo-company-tag">Web Deigner &amp; Developer</span></span></p>
+			<p class="logo-name"><a href="<?php bloginfo('url'); ?>" class="site-logo"><img alt="T.J. Rogers Design" title="T.J. Rogers Design" src="/wp-content/themes/tjrogersdesign/images/site-logo.png" /></a><span class="site-logo-company">TJ Rogers Design<span class="site-logo-company-tag">Web Design &amp; Development</span></span></p>
 			<p>I am a developer/designer who&rsquo;s based out of Orlando, FL. I get to build websites and design user experiences, as well as craft email campaigns and work on small print projects.</p>
 		</div>
 		<div class="footer-sect footer-nav">
