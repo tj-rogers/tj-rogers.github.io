@@ -78,6 +78,10 @@
 				if(is_home()){ ?>
 					<h1><?php echo get_the_title( get_option('page_for_posts', true) ); ?></h1>
 				<?php }
+
+				if(! is_front_page() && ! is_home()){ ?>
+					<h1><?php the_title(); ?></h1>
+				<?php }				
 			 ?>
 			<?php dynamic_sidebar( 'feature-area' ); ?>
 		</div><!-- /feature-area -->

@@ -53,6 +53,19 @@ border-radius: 100px;
 			}
 		}
 
+		&.about {
+			// margin-left: auto !important;
+
+			a {
+				color: #fff;
+				//background: $gold;
+				//font-weight: 500 !important;
+				-moz-border-radius: 100px 0 0 100px;
+				-webkit-border-radius: 100px 0 0 100px;
+				border-radius: 100px 0 0 100px;
+			}
+		}
+
 		&.contact {
 			margin-left: auto !important;
 

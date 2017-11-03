@@ -271,15 +271,19 @@ right: 1.5em;
 
 
 /* ----------------------------------------------- ABOUT --- */
-.aboutBio .aboutBioStory {
-width: 55%;
+.about-sect-tj .custom-html-widget {
+	max-width: 1320px;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
 }
 
-@media (max-width: 900px) {
-.aboutBio .aboutBioStory {
-width: 100%;
-margin-bottom: 2em;
-}
+.about-sect-tj-img,
+.aboutBioStory {
+width: 48%;
 }
 
 .aboutBio img.fltRight {
@@ -305,6 +309,13 @@ position: static;
 float: none;
 margin: 0;
 }
+}
+
+
+/* ----- COMMON ----- */
+.widget.content-bottom .custom-html-widget {
+	max-width: 1320px;
+	margin: auto;
 }
 
 

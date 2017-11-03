@@ -49,6 +49,9 @@
       letter-spacing: 2.5px; }
       .top-nav .menu li a:hover {
         color: #e1cd83; }
+    .top-nav .menu li.about a {
+      color: #fff;
+      border-radius: 100px 0 0 100px; }
     .top-nav .menu li.contact {
       margin-left: auto !important; }
       .top-nav .menu li.contact a {
@@ -336,13 +339,29 @@
   background: #f7f7f7; }
 
 /* ----------------------------------------------- ABOUT --- */
-.aboutBio .aboutBioStory {
-  width: 55%; }
+.about-sect-tj .custom-html-widget {
+  max-width: 1320px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
-@media (max-width: 900px) {
-  .aboutBio .aboutBioStory {
-    width: 100%;
-    margin-bottom: 2em; } }
+.about-sect-tj-img,
+.aboutBioStory {
+  width: 48%; }
+
 .aboutBio img.fltRight {
   position: absolute;
   bottom: -6.25em;
@@ -361,6 +380,11 @@
     position: static;
     float: none;
     margin: 0; } }
+/* ----- COMMON ----- */
+.widget.content-bottom .custom-html-widget {
+  max-width: 1320px;
+  margin: auto; }
+
 /* ----------------------------------------------- Code & RWD --- */
 .page-node-2 .contentBottom p {
   font-family: "effra";
@@ -1479,7 +1503,6 @@ span.statement-sect-2 {
 
 /* ----- CONTENT BOTTOM ----- */
 .content-bottom {
-  max-width: 1320px;
   margin: 0 auto; }
 
 /* ---------- FOOTER ---------- */
