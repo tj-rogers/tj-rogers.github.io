@@ -60,12 +60,19 @@ Template Name: Projects Page
 
                 <?php endwhile; endif; wp_reset_postdata(); ?>
             </div><!-- /project-listing -->
-
-
-
         </div><!-- /contentArea -->
     </div><!-- /contentWrap -->
 </div><!-- /pageWrap -->
+
+<div class="content-bottom-wrap">
+    <div class="content-bottom">
+        <?php dynamic_sidebar( 'content-bottom' ); ?>
+    </div>
+</div>
+
+<div class="prefooter">  
+    <?php dynamic_sidebar( 'prefooter' ); ?>
+</div>
 
 <pre><?php print_r($category); ?></pre>
 

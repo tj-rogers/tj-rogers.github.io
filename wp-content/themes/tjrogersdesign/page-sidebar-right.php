@@ -10,8 +10,6 @@ Template Name: Right Sidebar
     <div class="contentWrap">
         <!-- ContentArea -->
         <div class="content-area has-sidebar">
-            <?php the_title( '<h1>', '</h1>' ); ?>
-
             <?php the_content(); ?>               
 
         </div><!-- /contentArea -->
